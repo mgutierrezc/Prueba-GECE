@@ -1,0 +1,40 @@
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg"></div>
+
+    <h3 class="panel-sub-heading">
+        Instrucciones <font color="green"> Bloque TG </font>
+    </h3>
+    <p>
+        En esta parte del experimento vas a participar en {{ Constants.num_rounds }} rondas de la misma interacción.
+        Al inicio de la primera ronda, cada participante será emparejado con otro participante y, en las restantes,
+        se mantendrá el emparejamiento inicial.
+        Este emparejamiento se realizará al azar y de forma anónima. Es decir, cada uno tendrá una contraparte pero
+        no sabrá quién es ni durante ni después del experimento. Su identidad tampoco será
+        revelada a su contraparte.
+    </p>
+
+    </p>
+
+    <h4 class="panel-sub-heading">
+        Decisiones de los participantes
+    </h4>
+
+    <p>
+        Los participantes recibirán una cantidad aleatoria de fichas como dotación inicial y deberán
+        decidir cuánto enviar de dicho monto al otro miembro de la pareja.
+    </p>
+
+    <h4 class="panel-sub-heading">
+        Pagos
+    </h4>
+        Una página de resultados de la ronda mostrará el resultado de las decisiones en cada par.
+
+        </br></br>
+
+        Ejemplo: Si la dotación del primer miembro de la pareja es de 10 y este envía 5 al otro,
+        pero este último tiene una dotación inicial de 12 y envia 6, entonces los pagos de la ronda serían:
+        Pago de la ronda para el primer jugador: 10-5+6 = 11. </br>
+        Pago de la ronda para el segundo jugador: 12-6+5 = 11. </br>
+
+    </p>

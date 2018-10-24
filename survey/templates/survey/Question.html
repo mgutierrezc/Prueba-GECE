@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Principal campo de estudio
+{% endblock %}
+
+{% block content %}
+
+    {% formfield player.submitted_answer with label=player.question %}
+
+    {% next_button %}
+
+{% endblock %}

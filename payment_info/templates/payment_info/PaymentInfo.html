@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Pagos de la Sesión
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="panel panel-default" style="margin-bottom:10px">
+        <div class="panel-body">
+
+{#            <p><strong> </strong></p>#}
+{#            <p>Tus ganancias fueron seleccionadas aleatoriamente de 1 de los 4 juegos en los que participaste</p>#}
+            <p> El bloque que fue aleatoriamente seleccionado para el pago es: {{ paid_game }}. </p>
+            <p> La ronda de ese bloque que fue aleatoriamente seleccionada para pago es {{ paid_round }}. </p>
+{#            <p> Su pago todal de la session es {{ player.payoff }}. </p>#}
+            </br>
+            <p> A continuación lo invitamos a llenar un breve cuestionario. </p>
+            <p> Luego recibirá instrucciones sobre como sera el proceso de pago.</p>
+
+        </div>
+    </div>
+
+    {% next_button %}
+
+{% endblock %}
+
+{% block form %}
+
+{% endblock %}
