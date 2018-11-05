@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% include "floppyforms/input.html" %}
+
+
+{% block title %}
+
+    <p style="color:lightgrey"> Ronda {{ group.round_number }} - Bloque PEMG</p>
+    Ofertas
+
+{% endblock %}
+
+{% block content %}
+
+    <p>
+     Tú has recibido {{ player.endowment|c }} y debes proponer su repartición.
+    </p>
+
+    <p>
+     ¿Qué monto de los {{ player.endowment|c }} deseas ofrecer al otro participante?
+    </p>
+    <p>
+    {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
+    </p>
+    <p>
+    La dotación del otro jugador es {{ group.get_endowment_B }}
+    </p>
+    <p>
+    Lo que recibiría el otro jugador sería: {{ group.get_afterearn_B }}
+    </p>
+    Lo que te quedaría sería: {{ group.get_afterearn_A }}
+
+    {% next_button %}
+
+
+    </br></br></br></br></br></br>
+    {% include Constants.instructions_template %}
+
+{% endblock %}

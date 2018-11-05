@@ -18,33 +18,28 @@
 
     </p>
 
+    <p>
+
             ¿Qué monto de los {{ player.endowment|c }} deseas ofrecer al otro participante?
 
     </p>
-
-    </br>
+    <P>
+            {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
     </p>
-
-
-    {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
-    </p>
-
     {% if player.id_in_group == 1 %}
-
+        <p>
         Lo que recibiría el otro jugador sería: {{ group.get_afterearn_B }}
         </p>
         Lo que te quedaría sería: {{ group.get_afterearn_A }}
 
     {% else %}
-
+        <p>
         Lo que recibiría el otro jugador sería: {{ group.get_afterearn_A }}
         </p>
         Lo que te quedaría sería: {{ group.get_afterearn_B }}
 
     {% endif %}
-    </p>
 
-    </br></br>
     {% next_button %}
 
 
