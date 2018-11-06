@@ -5,40 +5,33 @@
 
 {% block title %}
 
-    <p style="color:lightgrey"> Ronda {{ group.round_number }} - Bloque PEMG</p>
-    Ofertas
+    <p style="color:lightgrey"> Ronda {{ group.round_number }}</p>
+    Transferencias
 
 {% endblock %}
 
 {% block content %}
 
+    {% if player.id_in_group == 1 %}
+        <p>
+        Tú has recibido {{ group.get_endowment_A }} y el otro jugador {{ group.get_endowment_B }}.
+        </p>
+
+    {% else %}
+        <p>
+        Tú has recibido {{ group.get_endowment_B }} y el otro jugador {{ group.get_endowment_A }}.
+        </p>
+
+    {% endif %}
+
     <p>
 
-            Tú has recibido {{ player.endowment|c }} y debes proponer su repartición.
-
-    </p>
-
-    <p>
-
-            ¿Qué monto de los {{ player.endowment|c }} deseas ofrecer al otro participante?
+            ¿Cuánto deseas ofrecer al otro jugador?
 
     </p>
     <P>
             {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
     </p>
-    {% if player.id_in_group == 1 %}
-        <p>
-        Lo que recibiría el otro jugador sería: {{ group.get_afterearn_B }}
-        </p>
-        Lo que te quedaría sería: {{ group.get_afterearn_A }}
-
-    {% else %}
-        <p>
-        Lo que recibiría el otro jugador sería: {{ group.get_afterearn_A }}
-        </p>
-        Lo que te quedaría sería: {{ group.get_afterearn_B }}
-
-    {% endif %}
 
     {% next_button %}
 

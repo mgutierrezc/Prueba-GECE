@@ -18,7 +18,10 @@ class Offer(Page):
         return self.player.endowment
 
     def is_displayed(self):
-        return self.player.id_in_group == 1
+        if self.group.get_endowment_A() <= self.group.get_endowment_B():
+            return self.player.id_in_group == 2
+        elif self.group.get_endowment_A() > self.group.get_endowment_B():
+            return self.player.id_in_group == 1
 
 class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
@@ -27,10 +30,12 @@ class ResultsWaitPage(WaitPage):
     def vars_for_template(self):
         if self.player.id_in_group == 2:
             a = str(self.player.endowment)
-            body_text = 'Tu dotación es de ' + a + '. Espera la decisión del otro jugador'
-        else:
-            body_text = 'Por favor, espere.'
-        return {'body_text': body_text}
+            body_text = 'Tu dotación es de ' + a + '. Espera la decisión del otro jugador. \n Por favor, espere'
+            return {'body_text': body_text}
+        elif self.player.id_in_group == 1:
+            b = str(self.player.endowment)
+            body_text = 'Tu dotación es de ' + b + '. Espera la decisión del otro jugador. \n Por favor, espere'
+            return {'body_text': body_text}
 
 class Results(Page):
     """This page displays the earnings of each player"""
