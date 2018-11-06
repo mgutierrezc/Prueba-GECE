@@ -1,12 +1,11 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree_tags %}
-{% include "floppyforms/input.html" %}
 
 
 {% block title %}
 
     <p style="color:lightgrey"> Ronda {{ group.round_number }} - Bloque PEMG</p>
-    Ofertas
+    Tu rol y tu decisión
 
 {% endblock %}
 
@@ -14,35 +13,26 @@
 
     <p>
 
-            Tú has recibido {{ player.endowment|c }} y debes proponer su repartición.
+            Tú tienes rol <strong>{{ player.role }}</strong>, y debes proponer la repartición de los {{ player.endowment }}.
 
     </p>
 
-            ¿Qué monto de los {{ player.endowment|c }} deseas ofrecer al otro participante?
+{% if player.role == 'A' %}
+    </p>
+
+            ¿Qué monto, de los {{ player.endowment }}, deseas ofrecer al participante de rol B ?
 
     </p>
+{% else %}
+    </p>
+
+            ¿Qué monto, de los {{ player.endowment }}, deseas ofrecer al participante de rol A ?
+
+    </p>
+ {% endif %}
 
     </br>
-    </p>
-
-
     {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
-    </p>
-
-    {% if player.id_in_group == 1 %}
-
-        Lo que recibiría el otro jugador sería: {{ group.get_afterearn_B }}
-        </p>
-        Lo que te quedaría sería: {{ group.get_afterearn_A }}
-
-    {% else %}
-
-        Lo que recibiría el otro jugador sería: {{ group.get_afterearn_A }}
-        </p>
-        Lo que te quedaría sería: {{ group.get_afterearn_B }}
-
-    {% endif %}
-    </p>
 
     </br></br>
     {% next_button %}

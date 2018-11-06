@@ -13,7 +13,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = False
+#he cambiado el valor de else: DEBUG = True a "False" para forzar el modo producción y que no salga el debug info
 
 # don't share this with anybody.
 SECRET_KEY = '&lo95cjnr0eu)9v6^9l9gj8l455yf=6(+#lii0&qbitkymajmg'
@@ -59,7 +60,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'soles'
-USE_POINTS = True
+USE_POINTS = False
 
 
 

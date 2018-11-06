@@ -1,28 +1,35 @@
 {% load otree_tags staticfiles %}
 
-<div class="instructions well well-lg"></div>
+<div class="instructions well well-lg">
 
     <h3 class="panel-sub-heading">
         Instrucciones <font color="green"> Bloque TG </font>
     </h3>
     <p>
         En esta parte del experimento vas a participar en {{ Constants.num_rounds }} rondas de la misma interacción.
-        Al inicio de la primera ronda, cada participante será emparejado con otro participante y, en las restantes,
-        se mantendrá el emparejamiento inicial.
+        Al inicio de una ronda, cada participante será emparejado con otro participante.
         Este emparejamiento se realizará al azar y de forma anónima. Es decir, cada uno tendrá una contraparte pero
         no sabrá quién es ni durante ni después del experimento. Su identidad tampoco será
         revelada a su contraparte.
     </p>
 
+    <p>
+        Luego, se asignarán dos tipos de roles A y B.
+        En cada par, uno de los miembros tendrá el <strong>rol A </strong>, mientras que el
+        otro tendrá el <strong> rol B </strong>.
+        Los roles serán asignados al azar y cada participante será informado/a en su pantalla
+        de computadora. Aunque las parejas que se formen cambian de periodo a periodo, los roles son fijos.
+        Quienes reciben rol A, permanecen en rol A en todas las rondas. Igual para quienes reciben rol B.
     </p>
 
     <h4 class="panel-sub-heading">
-        Decisiones de los participantes
+        Decisiones de los Roles A y B
     </h4>
 
     <p>
-        Los participantes recibirán una cantidad aleatoria de fichas como dotación inicial y deberán
-        decidir cuánto enviar de dicho monto al otro miembro de la pareja.
+        El participante de rol A y B recibirán una cantidad aleatoria de fichas como dotación.
+        El participante en rol A debe decidir cuánto enviar de dicho monto al participante en
+        rol B y viceversa.
     </p>
 
     <h4 class="panel-sub-heading">
@@ -32,9 +39,29 @@
 
         </br></br>
 
-        Ejemplo: Si la dotación del primer miembro de la pareja es de 10 y este envía 5 al otro,
-        pero este último tiene una dotación inicial de 12 y envia 6, entonces los pagos de la ronda serían:
-        Pago de la ronda para el primer jugador: 10-5+6 = 11. </br>
-        Pago de la ronda para el segundo jugador: 12-6+5 = 11. </br>
+        Ejemplo: Si la dotación de A es de 10 y rol A envía 5 a rol B, pero rol B recibe 12 y envia 6,
+        entonces los pagos de la ronda son:
+        Pago de la ronda para rol A: 10-5+6 = 11. </br>
+        Pago de la ronda para rol B: 12-6+5 = 11. </br>
 
     </p>
+
+</div>
+
+
+
+{##}
+{#    <p>#}
+{#        Usted ha sido anónima y aleatoriamente emparejado con otro participante.#}
+{#        Uno de ustedes será seleccionado para representar al participante A; mientras que#}
+{#        el otro será el participante B.#}
+{#        Usted aprenderá si es el participante A o B antes de realizar cualquier decisión.#}
+{##}
+{#    </p>#}
+{#    <p>#}
+{#        Para empezar, el participante A  recibirá {{ Constants.endowment }};#}
+{#        mientras que el participante B no recibirá nada.#}
+{#        El participante A puede enviar algún monto del total de sus {{ Subssesion.endowment1|c }} al participante B.#}
+{#        El participante B puede enviar algún monto del total de sus {{ Subssesion.endowment2|c }} al participante A.#}
+{#    </p>#}
+{##}

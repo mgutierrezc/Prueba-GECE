@@ -36,4 +36,3 @@ page_sequence = [
     ResultsWaitPage,
     Results,
 ]
-

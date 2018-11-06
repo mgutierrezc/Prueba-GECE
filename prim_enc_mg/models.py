@@ -3,7 +3,6 @@ from otree.api import (
     Currency as c, currency_range
 )
 import random
-import floppyforms as forms
 import config_leex_1
 
 doc = """
@@ -20,7 +19,6 @@ class Constants(BaseConstants):
     num_rounds = config_leex_1.PEMG_number_rounds #10
 
     instructions_template = 'prim_enc_mg/Instructions.html'
-    slider_template = 'prim_enc_mg/slider.html'
 
 class Subsession(BaseSubsession):
         def creating_session(self):
@@ -31,10 +29,14 @@ class Subsession(BaseSubsession):
 
             for p in self.get_players():
                 p.endowment = c(random.randint(0, 100))
-                #Random creation of endowments for every round
+                #p.endowment2 = random.randint(0, 100)
+        #Still thinking about that
 
 
 class Group(BaseGroup):
+    # use_strategy_method = models.BooleanField(
+    #     doc="""Whether this group uses strategy method"""
+    # )
     #
     #
     def set_payoffs(self):
@@ -42,12 +44,8 @@ class Group(BaseGroup):
         pA = self.get_player_by_role('A') # o player 1
         pB = self.get_player_by_role('B') # o player 2
 
-        pA.payoff = c(pA.endowment) - c(pA.sent_amount) + c(pB.sent_amount)
-        pB.payoff = c(pB.endowment) - c(pB.sent_amount) + c(pA.sent_amount)
-        pA.afterloss = c(pA.endowment) - c(pA.sent_amount)
-        pB.afterloss = c(pB.endowment) - c(pB.sent_amount)
-        pA.afterearn = c(pA.endowment) + c(pB.sent_amount)
-        pB.afterearn = c(pB.endowment) + c(pA.sent_amount)
+        pA.payoff = pA.endowment - c(pA.sent_amount) + c(pB.sent_amount)
+        pB.payoff = pB.endowment - c(pB.sent_amount) + c(pA.sent_amount)
 
     def get_endowment_A(self):
             pA = self.get_player_by_role('A') # o player 1
@@ -65,28 +63,11 @@ class Group(BaseGroup):
             pB = self.get_player_by_role('B') # o player 2
             return pB.sent_amount
 
-    def get_afterloss_A(self):
-            pA = self.get_player_by_role('A') # o player 1
-            return pA.afterloss
-
-    def get_afterloss_B(self):
-            pB = self.get_player_by_role('B') # o player 2
-            return pB.afterloss
-
-    def get_afterearn_A(self):
-            pA = self.get_player_by_role('A') # o player 1
-            return pA.afterearn
-
-    def get_afterearn_B(self):
-            pB = self.get_player_by_role('B') # o player 2
-            return pB.afterearn
 
 class Player(BasePlayer):
 
     endowment = models.CurrencyField()
-    sent_amount = models.IntegerField()
-    afterloss = models.IntegerField()
-    afterearn = models.IntegerField()
+    sent_amount = models.CurrencyField(min=0)
 
     def role(self):
         if self.id_in_group == 1:
