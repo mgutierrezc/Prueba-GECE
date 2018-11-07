@@ -88,6 +88,8 @@ class Player(BasePlayer):
     afterloss = models.IntegerField()
     afterearn = models.IntegerField()
 
+    checkslider = models.IntegerField(blank=True)
+
     def role(self):
         if self.id_in_group == 1:
             return 'A'

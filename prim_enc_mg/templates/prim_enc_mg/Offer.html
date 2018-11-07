@@ -1,6 +1,6 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree_tags %}
-{% include "floppyforms/input.html" %}
+
 
 
 {% block title %}
@@ -15,40 +15,42 @@
     <p>
 
             Tú has recibido {{ player.endowment|c }} y debes proponer su repartición.
-
-    </p>
-
             ¿Qué monto de los {{ player.endowment|c }} deseas ofrecer al otro participante?
 
     </p>
 
-    </br>
-    </p>
+     <input type="hidden" name="checkslider" value="" id="id_checkslider"/>
 
 
     {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
-    </p>
+  {% block scripts %}
+    <script>
+      var selector = $('[data-slider] input[type="range"]');
+      selector.change(function() {
+        $('#id_checkslider').val(selector.val());
+      });
+    </script>
+  {% endblock %}
+
 
     {% if player.id_in_group == 1 %}
 
         Lo que recibiría el otro jugador sería: {{ group.get_afterearn_B }}
-        </p>
         Lo que te quedaría sería: {{ group.get_afterearn_A }}
 
     {% else %}
 
         Lo que recibiría el otro jugador sería: {{ group.get_afterearn_A }}
-        </p>
         Lo que te quedaría sería: {{ group.get_afterearn_B }}
 
     {% endif %}
-    </p>
 
-    </br></br>
+
     {% next_button %}
 
 
-    </br></br></br></br></br></br>
     {% include Constants.instructions_template %}
 
 {% endblock %}
+
+
