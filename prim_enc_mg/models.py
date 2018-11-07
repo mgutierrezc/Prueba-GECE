@@ -29,7 +29,7 @@ class Subsession(BaseSubsession):
                 self.group_like_round(1)
 
             for p in self.get_players():
-                p.endowment = c(random.randint(0, 100))
+                p.endowment = c(random.randint(1, 100))
                 #Random creation of endowments for every round
 
 

@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <p style="color:lightgrey"> Ronda {{ group.round_number }} - Bloque TS </p>
+    Escenario a Decidir
+{% endblock %}
+
+{% block content %}
+
+    Tienes {{ player.endowment|c }}. Debes decidir en qué proyecto grupal desearás participar.
+
+    -Si escoges el número 1, estarás en el escenario número 1
+    -Si escoges el número 2, estarás en el escenario número 2
+    -Si escoges el número 3, estarás en el escenario número 3
+
+    Si deseas recordar qué implica estar en alguno de los escenarios, puedes consultar las instrucciones
+    que se encuentran en el pie de esta página
+
+    </br></br>
+
+    {% formfield player.roller with label="Deslice hasta seleccionar el número del escenario deseado" %}
+
+    </br>
+    {% next_button %}
+
+    </br></br></br></br>
+    {% include Constants.instructions_template %}
+
+{% endblock %}
