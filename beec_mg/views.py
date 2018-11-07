@@ -17,10 +17,11 @@ class Contribution(Page):
 
     form_model = models.Player
     form_fields = ['contribution']
+    def contribution_max(self):
+        return self.player.endowment
 
 
 class ResultsWaitPage(WaitPage):
-
     def after_all_players_arrive(self):
         self.group.set_payoffs()
 

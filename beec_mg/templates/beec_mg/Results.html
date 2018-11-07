@@ -12,15 +12,15 @@
 
     <p>
 
-    Tu monto inicial fue de {{ player.endowment|c }}. Escogiste ser parte del Escenario {{ player.roller }}
-    y ofreciste {{ player.contribution|c }} al proyecto grupal.
+    Tu monto inicial fue de {{ player.endowment }}. Escogiste ser parte del Escenario {{ player.roller }}
+    y ofreciste {{ player.contribution }} al proyecto grupal.
 
     </p>
 
 
     {% if player.roller == 1 %}
         <p>
-        La dotación promedio fue {{ group.mean_contribution1 }}.
+        La contribución promedio fue {{ group.mean_contribution1 }}.
         La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share1 }}
         </p>
 
@@ -28,20 +28,21 @@
 
         {% if player.roller == 2 %}
         <p>
-        La dotación promedio fue {{ group.mean_contribution2 }}.
+        La contribución promedio fue {{ group.mean_contribution2 }}.
         La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share2 }}
         </p>
 
         {% else %}
         <p>
-        La dotación promedio fue {{ group.mean_contribution3 }}.
+        La contribución promedio fue {{ group.mean_contribution3 }}.
         La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share3 }}
         </p>
+        {% endif %}
 
     {% endif %}
 
     <p>
-    Tu pago de esta ronda es de {{ player.payoff|c }}.
+    Tu pago de esta ronda es de {{ player.payoff }}.
     </p>
 
     </br>
