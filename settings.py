@@ -10,6 +10,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
+
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
@@ -142,6 +143,20 @@ SESSION_CONFIG_DEFAULTS = {
 
 
 SESSION_CONFIGS = [
+    {
+        'name': 'beec_mg',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Tiebout Sorting Public Goods",
+        'num_demo_participants': 4,
+        'app_sequence': ['beec_mg'],
+    },
+    {
+        'name': 'sec_enc_mg',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Segunda Version Random Dictator",
+        'num_demo_participants': 4,
+        'app_sequence': ['sec_enc_mg'],
+    },
     {
         'name': 'prim_enc_mg',
         'real_world_currency_per_point': 0.05,

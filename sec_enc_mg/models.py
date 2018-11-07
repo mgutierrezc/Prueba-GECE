@@ -15,11 +15,11 @@ decidió otorgar al otro jugador + la cantidad que el otro jugador decidió otor
 """
 
 class Constants(BaseConstants):
-    name_in_url = 'primer_encargo_mg'
+    name_in_url = 'segundo_encargo_mg'
     players_per_group = 2
     num_rounds = config_leex_1.PEMG_number_rounds #10
 
-    instructions_template = 'prim_enc_mg/Instructions.html'
+    instructions_template = 'sec_enc_mg/Instructions.html'
 
 class Subsession(BaseSubsession):
         def creating_session(self):
@@ -29,6 +29,8 @@ class Subsession(BaseSubsession):
                 self.group_like_round(1)
 
             for p in self.get_players():
+                p.sent_amount = 0
+                #Assigning a zero value to avoid None values in the game
                 p.endowment = c(random.randint(1, 100))
                 #Random creation of endowments for every round
 
@@ -41,12 +43,13 @@ class Group(BaseGroup):
         pA = self.get_player_by_role('A') # o player 1
         pB = self.get_player_by_role('B') # o player 2
 
-        pA.payoff = c(pA.endowment) - c(pA.sent_amount) + c(pB.sent_amount)
-        pB.payoff = c(pB.endowment) - c(pB.sent_amount) + c(pA.sent_amount)
-        pA.afterloss = c(pA.endowment) - c(pA.sent_amount)
-        pB.afterloss = c(pB.endowment) - c(pB.sent_amount)
-        pA.afterearn = c(pA.endowment) + c(pB.sent_amount)
-        pB.afterearn = c(pB.endowment) + c(pA.sent_amount)
+        pA.payoff = pA.endowment - pA.sent_amount
+        pB.payoff = pB.endowment + pA.sent_amount
+
+        pA.afterloss = pA.endowment - pA.sent_amount
+        pB.afterloss = pB.endowment - pB.sent_amount
+        pA.afterearn = pA.endowment + pB.sent_amount
+        pB.afterearn = pB.endowment + pA.sent_amount
 
     def get_endowment_A(self):
             pA = self.get_player_by_role('A') # o player 1
