@@ -43,13 +43,13 @@ class Group(BaseGroup):
         pA = self.get_player_by_role('A') # o player 1
         pB = self.get_player_by_role('B') # o player 2
 
-        pA.payoff = c(pA.endowment) - c(pA.sent_amount)
-        pB.payoff = c(pB.endowment) + c(pA.sent_amount)
+        pA.payoff = pA.endowment - pA.sent_amount
+        pB.payoff = pB.endowment + pA.sent_amount
 
-        pA.afterloss = c(pA.endowment) - c(pA.sent_amount)
-        pB.afterloss = c(pB.endowment) - c(pB.sent_amount)
-        pA.afterearn = c(pA.endowment) + c(pB.sent_amount)
-        pB.afterearn = c(pB.endowment) + c(pA.sent_amount)
+        pA.afterloss = pA.endowment - pA.sent_amount
+        pB.afterloss = pB.endowment - pB.sent_amount
+        pA.afterearn = pA.endowment + pB.sent_amount
+        pB.afterearn = pB.endowment + pA.sent_amount
 
     def get_endowment_A(self):
             pA = self.get_player_by_role('A') # o player 1
