@@ -69,7 +69,7 @@ USE_POINTS = True
 LANGUAGE_CODE = 'es'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree','floppyforms']
+INSTALLED_APPS = ['otree']
 
 # SENTRY_DSN = ''
 
