@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+
+    <p style="color:lightgrey"> Ronda {{ group.round_number }}</p>
+    Resultados
+
+{% endblock %}
+
+{% block content %}
+
+    <p>
+
+    Tu monto inicial fue de {{ player.endowment }}. Escogiste ser parte del Escenario {{ player.roller }}
+    y ofreciste {{ player.contribution }} al proyecto grupal.
+
+    </p>
+
+
+    {% if player.roller == 1 %}
+        <p>
+        La contribución promedio fue {{ group.mean_contribution1 }}.
+        La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share1 }}
+        </p>
+
+    {% else %}
+
+        {% if player.roller == 2 %}
+        <p>
+        La contribución promedio fue {{ group.mean_contribution2 }}.
+        La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share2 }}
+        </p>
+
+        {% else %}
+        <p>
+        La contribución promedio fue {{ group.mean_contribution3 }}.
+        La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share3 }}
+        </p>
+        {% endif %}
+
+    {% endif %}
+
+    <p>
+    Tu pago de esta ronda es de {{ player.payoff }}.
+    </p>
+
+    </br>
+    {% next_button %}
+
+
+
+{% endblock %}

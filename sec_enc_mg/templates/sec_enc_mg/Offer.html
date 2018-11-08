@@ -1,6 +1,6 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree_tags %}
-
+{% include "floppyforms/input.html" %}
 
 
 {% block title %}
@@ -12,6 +12,7 @@
 
 {% block content %}
 
+
     {% if player.id_in_group == 1 %}
         <p>
         Tú has recibido {{ group.get_endowment_A }} y el otro jugador {{ group.get_endowment_B }}.
@@ -21,23 +22,17 @@
         <p>
         Tú has recibido {{ group.get_endowment_B }} y el otro jugador {{ group.get_endowment_A }}.
         </p>
-
     {% endif %}
-
     <p>
-
-            ¿Cuánto deseas ofrecer al otro jugador?
-
+     ¿Cuánto deseas ofrecer al otro jugador?
+    {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
     </p>
-    <P>
-            {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
-    </p>
+
 
     {% next_button %}
 
 
+    </br></br></br></br></br></br>
     {% include Constants.instructions_template %}
 
 {% endblock %}
-
-

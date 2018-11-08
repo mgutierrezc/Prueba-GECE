@@ -1,0 +1,58 @@
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg"></div>
+
+    <h3 class="panel-sub-heading">
+        Instrucciones <font color="green"> Bloque TS </font>
+    </h3>
+    <p>
+        En este experimento, vas a participar en {{ Constants.num_rounds }} rondas de la misma interacción.
+        Al inicio de cada ronda, cada participante del grupo recibirá una determinada dotación.
+        Luego, cada participante debe decidir cuánto conservar para sí mismo y cuánto contribuir a un proyecto grupal.
+        La <strong> contribución </strong> al proyecto grupal puede ser cualquier monto entero desde 0 hasta
+        el valor de tu dotación.
+    </p>
+
+    <p>
+        Sin embargo, una vez que hayas recibido tu dotación, podrás decidir participar en uno de 3 distintos proyectos
+        grupales, los cuales son los siguientes:
+    </p>
+    <p>
+        -<strong>Escenario número 1:</strong> Tendrás un 100% de probabilidad de recibir una retribución por participar. Dicha
+        contribución será la media de las contribuciones realizadas por las personas que también escogieron ser parte de
+        este escenario, incluyendo la que realizaste.
+    </p>
+    <p>
+        -<strong>Escenario número 2:</strong> Tendrás un 75% de probabilidad de recibir una retribución por participar. Dicha
+        retribución será 2 veces la media de las contribuciones realizadas por las personas que también escogieron
+        ser parte de este escenario, incluyendo la que realizaste.
+    </p>
+    <p>
+        -<strong>Escenario número 3:</strong> Tendrás un 50% de probabilidad de recibir una retribución por participar. Dicha
+        retribución será 3 veces la media de las contribuciones realizadas por las personas que también escogieron
+        ser parte de este escenario, incluyendo la que realizaste.
+
+    </p>
+
+    <h4 class="panel-sub-heading">
+        Ejemplo:
+    </h4>
+
+        <p>
+        Supón que la dotación que recibiste en la primera ronda es de 20 fichas.
+        </p>
+        <p>
+        -Si escogieras ser parte del <strong>Escenario número 1</strong>, decidieras aportar 6 unidades
+        y la media de las contribuciones fuera 6 (incluyendo tu aporte en el cálculo) recibirías:
+        20 - 6 + 6 = 20.
+        </p>
+        <p>
+        -Si escogieras ser parte del <strong>Escenario número 2</strong>, decidieras aportar 6 unidades
+        y la media de las contribuciones fuera 6 (incluyendo tu aporte en el cálculo) recibirías:
+        20 - 6 + 2*6 = 23 con 75% de probabilidad o 20 - 6 = 14 con 25% de probabilidad.
+        </p>
+        <p>
+        -Si escogieras ser parte del <strong>Escenario número 3</strong>, decidieras aportar 6 unidades
+        y la media de las contribuciones fuera 6 (incluyendo tu aporte en el cálculo) recibirías:
+        20 - 6 + 3*6 = 26 con 50% de probabilidad o 20 - 6 = 14 con 50% de probabilidad.
+        </p>
