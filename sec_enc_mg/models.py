@@ -90,8 +90,8 @@ class Player(BasePlayer):
                                         min=0, max=100,
                                         initial=0,
                                         widget=widgets.SliderInput())
-    afterloss = models.IntegerField()
-    afterearn = models.IntegerField()
+    afterloss = models.CurrencyField()
+    afterearn = models.CurrencyField()
 
     def role(self):
         if self.id_in_group == 1:
