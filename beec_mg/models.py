@@ -57,15 +57,15 @@ class Group(BaseGroup):
             # [p.contribution for p in self.get_players() if p.role() == 'A'])
         for p in self.get_players():
             if p.role() == 'A':
-                self.total_contribution1=+ p.contribution
+                self.total_contribution1 += p.contribution
 
         for p in self.get_players():
             if p.role() == 'B':
-                self.total_contribution2=+ p.contribution
+                self.total_contribution2 += p.contribution
 
         for p in self.get_players():
             if p.role() == 'C':
-                self.total_contribution3=+ p.contribution
+                self.total_contribution3 += p.contribution
 
         # if p.role== 'B'
         # self.total_contribution2 = sum(
@@ -79,15 +79,15 @@ class Group(BaseGroup):
             # [p.counter for p in self.get_players() if p.role() == 'A'])
         for p in self.get_players():
             if p.role() == 'A':
-                self.totalp1=+1
+                self.totalp1 += 1
 
         for p in self.get_players():
             if p.role() == 'B':
-                self.totalp2=+1
+                self.totalp2 += 1
 
         for p in self.get_players():
             if p.role() == 'C':
-                self.totalp3=+1
+                self.totalp3 += 1
 
         # if p.role == 'B'
         # self.totalp2 = sum(
@@ -99,11 +99,10 @@ class Group(BaseGroup):
         self.individual_share1 = self.total_contribution1 * Constants.multiplier1 / self.totalp1
         self.individual_share2 = self.total_contribution2 * Constants.multiplier2 / self.totalp2
         self.individual_share3 = self.total_contribution3 * Constants.multiplier3 / self.totalp3
-
+        #if self.totalp1!=0 else 0
         self.mean_contribution1 = self.total_contribution1/self.totalp1
         self.mean_contribution2 = self.total_contribution2 /self.totalp2
         self.mean_contribution3 = self.total_contribution3 /self.totalp3
-
 
         for p in self.get_players():
             if p.role == "A":
