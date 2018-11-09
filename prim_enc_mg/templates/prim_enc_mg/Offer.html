@@ -23,15 +23,11 @@
         </p>
 
     {% endif %}
-
     <p>
-
-            ¿Cuánto deseas ofrecer al otro jugador?
-
+     ¿Cuánto deseas ofrecer al otro jugador?
+    {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
     </p>
-    <P>
-            {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
-    </p>
+
 
     {% next_button %}
 

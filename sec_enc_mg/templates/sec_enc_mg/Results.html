@@ -13,12 +13,12 @@
     <p>
         {% if player.id_in_group == 1 %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}, de los cuales tu ofreciste {{ player.sent_amount|c }} al otro participante.
+                Tu monto inicial fue de {{ player.endowment|c }} {{text_A}}
+
 
         {% else %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}.
-                El otro participante te ha ofrecido {{ group.get_sent_amount_A|c }} de un total de {{ group.get_endowment_A|c }}.
+                Tu monto inicial fue de {{ player.endowment|c }} {{text_B}}.
 
         {% endif %}
     </p>

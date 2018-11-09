@@ -12,7 +12,7 @@ class Introduction(Page):
 
 class Offer(Page):
     form_model = 'player'
-    form_fields = ['sent_amount','checkslider']
+    form_fields = ['sent_amount']
 
     def sent_amount_max(self):
         return self.player.endowment
