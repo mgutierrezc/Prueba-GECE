@@ -3,7 +3,6 @@ from otree.api import (
     Currency as c, currency_range
 )
 import random
-import floppyforms as forms
 import config_leex_1
 
 author = 'Your name here'
@@ -27,10 +26,10 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-
+        gamma = random.randint(0, 100)
         for p in self.get_players():
             p.endowment = random.randint(1, 100)
-            p.prob = random.randint(0,100)
+            p.prob = gamma
             # Random creation of endowments for every round
 
 class Group(BaseGroup):
@@ -57,15 +56,15 @@ class Group(BaseGroup):
             # [p.contribution for p in self.get_players() if p.role() == 'A'])
         for p in self.get_players():
             if p.role() == 'A':
-                self.total_contribution1=+ p.contribution
+                self.total_contribution1 += p.contribution
 
         for p in self.get_players():
             if p.role() == 'B':
-                self.total_contribution2=+ p.contribution
+                self.total_contribution2 += p.contribution
 
         for p in self.get_players():
             if p.role() == 'C':
-                self.total_contribution3=+ p.contribution
+                self.total_contribution3 += p.contribution
 
         # if p.role== 'B'
         # self.total_contribution2 = sum(
@@ -79,15 +78,15 @@ class Group(BaseGroup):
             # [p.counter for p in self.get_players() if p.role() == 'A'])
         for p in self.get_players():
             if p.role() == 'A':
-                self.totalp1=+1
+                self.totalp1 += 1
 
         for p in self.get_players():
             if p.role() == 'B':
-                self.totalp2=+1
+                self.totalp2 += 1
 
         for p in self.get_players():
             if p.role() == 'C':
-                self.totalp3=+1
+                self.totalp3 += 1
 
         # if p.role == 'B'
         # self.totalp2 = sum(
@@ -96,14 +95,13 @@ class Group(BaseGroup):
         # self.totalp3 = sum(
             # [p.counter for p in self.get_players() if p.role() == 'C'])
 
-        self.individual_share1 = self.total_contribution1 * Constants.multiplier1 / self.totalp1
-        self.individual_share2 = self.total_contribution2 * Constants.multiplier2 / self.totalp2
-        self.individual_share3 = self.total_contribution3 * Constants.multiplier3 / self.totalp3
-
-        self.mean_contribution1 = self.total_contribution1/self.totalp1
-        self.mean_contribution2 = self.total_contribution2 /self.totalp2
-        self.mean_contribution3 = self.total_contribution3 /self.totalp3
-
+        self.individual_share1 = self.total_contribution1 * Constants.multiplier1 / self.totalp1 if self.totalp1!=0 else 0
+        self.individual_share2 = self.total_contribution2 * Constants.multiplier2 / self.totalp2 if self.totalp2!=0 else 0
+        self.individual_share3 = self.total_contribution3 * Constants.multiplier3 / self.totalp3 if self.totalp3!=0 else 0
+        #if self.totalp1!=0 else 0
+        self.mean_contribution1 = self.total_contribution1/self.totalp1 if self.totalp1!=0 else 0
+        self.mean_contribution2 = self.total_contribution2 /self.totalp2 if self.totalp2!=0 else 0
+        self.mean_contribution3 = self.total_contribution3 /self.totalp3 if self.totalp3!=0 else 0
 
         for p in self.get_players():
             if p.role == "A":
@@ -125,7 +123,6 @@ class Player(BasePlayer):
     contribution = models.CurrencyField(verbose_name='Deslice hasta seleccionar la cantidad a enviar deseada',
                                         min=0,max=100,
                                         initial=0,widget=widgets.SliderInput())
-    counter = models.IntegerField(initial=1)
     roller = models.IntegerField(verbose_name='Deslice hasta seleccionar el número de la opción deseada',
                                  min=1, max=3,
                                  widget=widgets.SliderInput())
