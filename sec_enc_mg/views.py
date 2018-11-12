@@ -43,10 +43,10 @@ class Results(Page):
     def vars_for_template(self):
         if self.group.get_endowment_A() <= self.group.get_endowment_B():
             text_A = '. \nEl otro participante te ha enviado ' + str(self.group.get_sent_amount_B())+ ' puntos de un total de '+ str(self.group.get_endowment_B()) +'.'
-            text_B = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_B()) +' puntos al otro participante.'
+            text_B = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_B()) +' puntos al otro participante.\nEl monto inicial del otro jugador fue' + str(self.get_sent_amount_A)
             return {'text_A':text_A, 'text_B':text_B}
         elif self.group.get_endowment_A() > self.group.get_endowment_B():
-            text_A = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_A()) +' puntos al otro participante.'
+            text_A = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_A()) +' puntos al otro participante.\nEl monto inicial del otro jugador fue' + str(self.get_sent_amount_B)
             text_B = '. \nEl otro participante te ha enviado ' + str(self.group.get_sent_amount_A())+ ' puntos de un total de '+ str(self.group.get_endowment_A()) +'.'
             return {'text_A':text_A, 'text_B':text_B}
 
