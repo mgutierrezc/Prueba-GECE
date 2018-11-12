@@ -6,12 +6,12 @@
         Instrucciones <font color="black">
     </h3>
     <p>
-        En esta parte del experimento vas a participar en {{ Constants.num_rounds }} rondas de la misma interacción.
-        Al inicio de la primera ronda, cada participante será emparejado con otro participante y, en las restantes,
-        se mantendrá el emparejamiento inicial.
-        Este emparejamiento se realizará al azar y de forma anónima. Es decir, cada uno tendrá una contraparte pero
-        no sabrá quién es ni durante ni después del experimento. Su identidad tampoco será
-        revelada a su contraparte.
+        En esta parte del experimento, vas a participar en {{ Constants.num_rounds }} rondas de la misma interacción.
+        Antes de la primera ronda, cada participante será emparejado con otro participante y se mantendrá este
+        emparejamiento en todas las rondas. El emparejamiento se realizará al azar y de forma anónima. Es decir,
+        cada uno tendrá una contraparte pero no sabrá quién es ni durante ni después del experimento. Su identidad
+        tampoco será revelada a su contraparte.
+
     </p>
 
     </p>
@@ -21,10 +21,11 @@
     </h4>
 
     <p>
-        Los participantes recibirán una cantidad aleatoria de fichas como dotación inicial.
-        Uno de ellos podrá decidir cuánto enviar de dicho monto al otro miembro de la pareja y tendrá conocimiento de la
-        dotación del otro jugador.
-        El otro no tendrá poder alguno de decisión.
+        Los participantes recibirán una cantidad aleatoria de fichas como dotación inicial. El que recibe más fichas,
+        tendrá conocimiento de la dotación del otro jugador, y podrá decidir cuánto enviar de la cantidad que ha
+        recibido, al otro miembro de la pareja. El que recibe menos fichas, tendrá conocimiento de la dotación del
+        otro jugador pero no tendrá poder alguno de decisión. Sólo recibirá lo que el otro le envíe.
+
     </p>
 
     <h4 class="panel-sub-heading">
@@ -34,9 +35,13 @@
 
         </br></br>
 
-        Ejemplo: Si la dotación del primer miembro de la pareja es de 10 y este envía 5 al otro,
-        pero este último tiene una dotación inicial de 12, entonces los pagos de la ronda serían:
-        Pago de la ronda para el primer jugador: 10-5 = 5. </br>
-        Pago de la ronda para el segundo jugador: 12+5 = 17. </br>
+        Ejemplo: Si la dotación del primer miembro de la pareja es de 10 y la del segundo es 22. Sólo el segundo tiene
+        la oportunidad de enviar una parte al otros. Si este envía 5 al otro entonces los pagos de la ronda serían:
+        Pago de la ronda para el primer jugador: 10+5 = 15. </br>
+        Pago de la ronda para el segundo jugador: 22-5 = 17. </br>
 
+    </p>
+
+    <p>
+        Las instrucciones permanecerán en pantalla en caso desees consultarlas durante la interacción.
     </p>

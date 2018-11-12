@@ -25,9 +25,17 @@
     </p>
 
     <p>
+        {% if player.id_in_group == 1 %}
 
-            Tu pago de esta ronda es de {{ player.payoff|c }}.
+                Tu pago de esta ronda es de {{ group.get_payoff_A|c }}.
+                El pago del otro jugador es de {{ group.get_payoff_B|c }}.
 
+        {% else %}
+
+                Tu pago de esta ronda es de {{ group.get_payoff_B|c }}.
+                El pago del otro jugador es de {{ group.get_payoff_A|c }}.
+
+        {% endif %}
     </p>
 
     </br>
