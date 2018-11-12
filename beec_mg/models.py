@@ -27,7 +27,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        gamma = random.randint(0, 100)
+        gamma = random.randint(1, 100)
         for p in self.get_players():
             p.endowment = random.randint(1, 100)
             p.prob = gamma

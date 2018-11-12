@@ -13,20 +13,30 @@
     <p>
         {% if player.id_in_group == 1 %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}, de los cuales tu ofreciste {{ player.sent_amount|c }} al otro participante.
+                Tu monto inicial fue de {{ player.endowment|c }}, de los cuales enviaste {{ player.sent_amount|c }} al otro
+                participante.
+                El monto inicial del otro jugador fue {{ group.get_endowment_B|c }}
 
         {% else %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}.
-                El otro participante te ha ofrecido {{ group.get_sent_amount_A|c }} de un total de {{ group.get_endowment_A|c }}.
+                Tu monto inicial fue de {{ player.endowment|c }}. El otro participante te ha enviado {{ group.get_sent_amount_A|c }}
+                de un total de {{ group.get_endowment_A|c }}.
 
         {% endif %}
     </p>
 
     <p>
+        {% if player.id_in_group == 1 %}
 
-            Tu pago de esta ronda es de {{ player.payoff|c }}.
+                Tu pago de esta ronda es de {{ player.payoff|c }}.
+                El pago del otro es {{ group.get_payoff_A|c }}
 
+        {% else %}
+
+                Tu pago de esta ronda es de {{ player.payoff|c }}.
+                El pago del otro es {{ group.get_payoff_B|c }}
+
+        {% endif %}
     </p>
 
     </br>
