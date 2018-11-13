@@ -31,7 +31,8 @@ class Subsession(BaseSubsession):
             for p in self.get_players():
                 p.sent_amount = 0
                 #Assigning a zero value to avoid None values in the game
-                p.endowment = c(random.randint(1, 100))
+                p.endowment = c(random.randint(40, 100))
+                #p.endowment = c(random.randint(1, 100))
                 #Random creation of endowments for every round
 
 
