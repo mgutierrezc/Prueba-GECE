@@ -30,7 +30,9 @@ class Subsession(BaseSubsession):
             for p in self.get_players():
                 p.sent_amount = 0
                 #Assigning a zero value to avoid None values in the game
-                p.endowment = c(random.randint(1, 100))
+                p.endowment = c(random.randint(40, 100))
+                #random.uniform(a, b)
+                #random.lognormvariate(mu, sigma)
                 #Random creation of endowments for every round
 
 
@@ -42,8 +44,8 @@ class Group(BaseGroup):
         pA = self.get_player_by_role('A') # o player 1
         pB = self.get_player_by_role('B') # o player 2
 
-        pA.payoff = pA.endowment - pA.sent_amount
-        pB.payoff = pB.endowment + pA.sent_amount
+        pA.payoff = c(pA.endowment) - c(pA.sent_amount) + c(pB.sent_amount)
+        pB.payoff = c(pB.endowment) - c(pB.sent_amount) + c(pA.sent_amount)
 
         pA.afterloss = pA.endowment - pA.sent_amount
         pB.afterloss = pB.endowment - pB.sent_amount
