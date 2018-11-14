@@ -3,7 +3,6 @@ from otree.api import (
     Currency as c, currency_range
 )
 import random
-import floppyforms as forms
 import config_leex_1
 
 doc = """
@@ -31,8 +30,7 @@ class Subsession(BaseSubsession):
             for p in self.get_players():
                 p.sent_amount = 0
                 #Assigning a zero value to avoid None values in the game
-                p.endowment = c(random.randint(40, 100))
-                #p.endowment = c(random.randint(1, 100))
+                p.endowment = c(random.randint(1, 100))
                 #Random creation of endowments for every round
 
 
@@ -99,8 +97,8 @@ class Player(BasePlayer):
                                         min=0, max=100,
                                         initial=0,
                                         widget=widgets.SliderInput())
-    afterloss = models.IntegerField()
-    afterearn = models.IntegerField()
+    afterloss = models.CurrencyField()
+    afterearn = models.CurrencyField()
 
     def role(self):
         if self.id_in_group == 1:

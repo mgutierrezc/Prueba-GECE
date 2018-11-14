@@ -1,6 +1,6 @@
 {% extends "global/Page.html" %}
 {% load staticfiles otree_tags %}
-{% include "floppyforms/input.html" %}
+
 
 
 {% block title %}
@@ -23,20 +23,21 @@
         </p>
 
     {% endif %}
-
     <p>
 
             ¿Cuánto deseas enviar al otro jugador?
 
     </p>
-    <P>
+    <p>
             {% formfield player.sent_amount with label="Ingrese el monto aquí:" %}
     </p>
+
 
     {% next_button %}
 
 
-    </br></br></br></br></br></br>
     {% include Constants.instructions_template %}
 
 {% endblock %}
+
+

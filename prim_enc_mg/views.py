@@ -17,6 +17,10 @@ class Offer(Page):
     def sent_amount_max(self):
         return self.player.endowment
 
+    def checkslider_error_message(self, value):
+            if not value:
+                return 'Please make your decision using slider'
+
    # def is_displayed(self):
     #    return self.player.id_in_group == 1
 
