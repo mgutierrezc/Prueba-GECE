@@ -28,13 +28,17 @@ class ResultsWaitPage(WaitPage):
         self.group.set_payoffs()
 
     def vars_for_template(self):
+
         if self.player.id_in_group == 2:
-            a = str(self.player.endowment)
-            body_text = 'Tu dotación es de ' + a + '. Espera la decisión del otro jugador. \n Por favor, espere'
+            a = str(self.group.get_endowment_A())
+            b = str(self.group.get_endowment_B())
+            #a = str(self.pB.endowment)
+            body_text = 'Tu dotación es de ' + b + '. La dotación del otro jugador es ' + a + '. \n Por favor, espere'
             return {'body_text': body_text}
         elif self.player.id_in_group == 1:
-            b = str(self.player.endowment)
-            body_text = 'Tu dotación es de ' + b + '. Espera la decisión del otro jugador. \n Por favor, espere'
+            a = str(self.group.get_endowment_A())
+            b = str(self.group.get_endowment_B())
+            body_text = 'Tu dotación es de ' + a + '. La dotación del otro jugador es ' + b + '. \n Por favor, espere'
             return {'body_text': body_text}
 
 class Results(Page):
