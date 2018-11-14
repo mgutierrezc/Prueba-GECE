@@ -3,7 +3,6 @@ from otree.api import (
     Currency as c, currency_range
 )
 import random
-import floppyforms as forms
 import config_leex_1
 
 author = 'Your name here'
