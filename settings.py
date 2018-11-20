@@ -153,14 +153,14 @@ SESSION_CONFIGS = [
     {
         'name': 'sec_enc_mg',
         'real_world_currency_per_point': 0.05,
-        'display_name': "Segunda Version Random Dictator",
+        'display_name': "Random Dictator",
         'num_demo_participants': 4,
         'app_sequence': ['sec_enc_mg'],
     },
     {
         'name': 'prim_enc_mg',
         'real_world_currency_per_point': 0.05,
-        'display_name': "LEEX PILOTO 2018 2",
+        'display_name': "Bilateral Random Dictator",
         'num_demo_participants': 4,
         'app_sequence': ['prim_enc_mg'],
     },
