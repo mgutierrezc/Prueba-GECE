@@ -10,33 +10,55 @@
 
 {% block content %}
 
-    <p>
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+
         {% if player.id_in_group == 1 %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}, de los cuales tu enviaste {{ player.sent_amount|c }} al otro participante.
-                El otro participante te ha enviado {{ group.get_sent_amount_B|c }} de un total de {{ group.get_endowment_B|c }}.
+            <tr><td>Tu monto inicial:</td><td>{{ player.endowment|c }}</td></tr>
+
+            <tr><td>Tu monto enviado (a tu contraparte):</td><td>{{ player.sent_amount|c }}</td></tr>
+
+            <tr><td colspan="2"><hr/></td></tr>
+
+            <tr><td>Monto inicial de tu contraparte:</td><td>{{ group.get_endowment_B|c }}</td></tr>
+
+            <tr><td>Monto enviado por tu contraparte (a ti):</td><td>{{ group.get_sent_amount_B|c }}</td></tr>
 
         {% else %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}, de los cuales tu enviaste {{ player.sent_amount }} al otro participante.
-                El otro participante te ha enviado {{ group.get_sent_amount_A|c }} de un total de {{ group.get_endowment_A|c }}.
+            <tr><td>Tu monto inicial:</td><td>{{ player.endowment|c }}</td></tr>
+
+            <tr><td>Tu monto enviado (a tu contraparte):</td><td>{{ player.sent_amount|c }}</td></tr>
+
+            <tr><td colspan="2"><hr/></td></tr>
+
+            <tr><td>Monto inicial de tu contraparte:</td><td>{{ group.get_endowment_A|c }}</td></tr>
+
+            <tr><td>Monto enviado por tu contraparte (a ti):</td><td>{{ group.get_sent_amount_A|c }}</td></tr>
 
         {% endif %}
-    </p>
 
-    <p>
+        </br>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
         {% if player.id_in_group == 1 %}
 
-                Tu pago de esta ronda es de {{ group.get_payoff_A|c }}.
-                El pago del otro jugador es de {{ group.get_payoff_B|c }}.
+            <tr><td><strong>Tu pago de esta ronda:</strong></td><td>{{ group.get_payoff_A|c }}</td></tr>
+
+            <tr><td><strong>El pago de tu contraparte de esta ronda:</strong></td><td>{{ group.get_payoff_B|c }}</td></tr>
 
         {% else %}
 
-                Tu pago de esta ronda es de {{ group.get_payoff_B|c }}.
-                El pago del otro jugador es de {{ group.get_payoff_A|c }}.
+            <tr><td><strong>Tu pago de esta ronda:</strong></td><td>{{ group.get_payoff_B|c }}</td></tr>
+
+            <tr><td><strong>El pago de tu contraparte de esta ronda:</strong></td><td>{{ group.get_payoff_A|c }}</td></tr>
 
         {% endif %}
-    </p>
+
+        <tr><td colspan="2"><hr/></td></tr>
+
+    </table>
 
     </br>
     {% next_button %}

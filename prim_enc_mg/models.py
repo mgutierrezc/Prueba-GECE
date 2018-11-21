@@ -89,6 +89,7 @@ class Group(BaseGroup):
             pB = self.get_player_by_role('B') # o player 2
             return c(pB.payoff)
 
+
 class Player(BasePlayer):
 
     endowment = models.CurrencyField()
