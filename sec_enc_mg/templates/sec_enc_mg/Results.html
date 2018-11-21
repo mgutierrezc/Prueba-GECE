@@ -10,15 +10,16 @@
 
 {% block content %}
 
-    <p>
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+
         {% if player.id_in_group == 1 %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}{{text_A}}
+            Tu monto inicial fue de {{ player.endowment|c }}{{text_A}}
 
 
         {% else %}
 
-                Tu monto inicial fue de {{ player.endowment|c }}{{text_B}}
+            Tu monto inicial fue de {{ player.endowment|c }}{{text_B}}
 
         {% endif %}
     </p>
