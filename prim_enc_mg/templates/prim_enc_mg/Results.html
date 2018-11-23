@@ -10,53 +10,37 @@
 
 {% block content %}
 
-    <table class="table-condensed" style="width:500px; margin-top:20px;">
+    <table class="table" style="width:500px; margin-top:20px;">
 
         {% if player.id_in_group == 1 %}
 
-            <tr><td>Tu monto inicial:</td><td>{{ player.endowment|c }}</td></tr>
+            <tr><td></td><td>&nbsp;<u>Tus&nbsp;datos</u>&emsp;</td><td><u>Datos de tu contraparte</u></td></tr>
 
-            <tr><td>Tu monto enviado (a tu contraparte):</td><td>{{ player.sent_amount|c }}</td></tr>
+            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_endowment_B|c }}</td></tr>
 
-            <tr><td colspan="2"><hr/></td></tr>
-
-            <tr><td>Monto inicial de tu contraparte:</td><td>{{ group.get_endowment_B|c }}</td></tr>
-
-            <tr><td>Monto enviado por tu contraparte (a ti):</td><td>{{ group.get_sent_amount_B|c }}</td></tr>
+            <tr><td>Monto enviado:</td><td>&nbsp;{{ player.sent_amount|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_sent_amount_B|c }}</td></tr>
 
         {% else %}
 
-            <tr><td>Tu monto inicial:</td><td>{{ player.endowment|c }}</td></tr>
+            <tr><td></td><td>&nbsp;<u>Tus&nbsp;datos</u>&emsp;</td><td><u>Datos de tu contraparte</u></td></tr>
 
-            <tr><td>Tu monto enviado (a tu contraparte):</td><td>{{ player.sent_amount|c }}</td></tr>
+            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_endowment_A|c }}</td></tr>
 
-            <tr><td colspan="2"><hr/></td></tr>
-
-            <tr><td>Monto inicial de tu contraparte:</td><td>{{ group.get_endowment_A|c }}</td></tr>
-
-            <tr><td>Monto enviado por tu contraparte (a ti):</td><td>{{ group.get_sent_amount_A|c }}</td></tr>
+            <tr><td>Monto enviado:</td><td>&nbsp;{{ player.sent_amount|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_sent_amount_A|c }}</td></tr>
 
         {% endif %}
 
         </br>
 
-        <tr><td colspan="2"><hr/></td></tr>
-
         {% if player.id_in_group == 1 %}
 
-            <tr><td><strong>Tu pago de esta ronda:</strong></td><td>{{ group.get_payoff_A|c }}</td></tr>
-
-            <tr><td><strong>El pago de tu contraparte de esta ronda:</strong></td><td>{{ group.get_payoff_B|c }}</td></tr>
+            <tr><td><strong>Pagos:</strong></td><td>&nbsp;{{ group.get_payoff_A|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_payoff_B|c }}</td></tr>
 
         {% else %}
 
-            <tr><td><strong>Tu pago de esta ronda:</strong></td><td>{{ group.get_payoff_B|c }}</td></tr>
-
-            <tr><td><strong>El pago de tu contraparte de esta ronda:</strong></td><td>{{ group.get_payoff_A|c }}</td></tr>
+            <tr><td><strong>Pagos:</strong></td><td>&nbsp;{{ group.get_payoff_B|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_payoff_A|c }}</td></tr>
 
         {% endif %}
-
-        <tr><td colspan="2"><hr/></td></tr>
 
     </table>
 
