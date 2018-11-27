@@ -17,9 +17,9 @@ class Constants(BaseConstants):
     players_per_group = 4
     num_rounds = config_leex_1.PEMG_number_rounds #10
     instructions_template = 'beec_mg/Instructions.html'
-    multiplier1 = 1
-    multiplier2 = 2
-    multiplier3 = 3
+    multiplier1 = 2
+    multiplier2 = 3
+    multiplier3 = 4
     i = 1
     j = 1
     k = 1
@@ -95,25 +95,25 @@ class Group(BaseGroup):
         # self.totalp3 = sum(
             # [p.counter for p in self.get_players() if p.role() == 'C'])
 
-        self.individual_share1 = self.total_contribution1 * Constants.multiplier1 / self.totalp1 if self.totalp1!=0 else 0
-        self.individual_share2 = self.total_contribution2 * Constants.multiplier2 / self.totalp2 if self.totalp2!=0 else 0
-        self.individual_share3 = self.total_contribution3 * Constants.multiplier3 / self.totalp3 if self.totalp3!=0 else 0
-        #if self.totalp1!=0 else 0
         self.mean_contribution1 = self.total_contribution1/self.totalp1 if self.totalp1!=0 else 0
         self.mean_contribution2 = self.total_contribution2 /self.totalp2 if self.totalp2!=0 else 0
         self.mean_contribution3 = self.total_contribution3 /self.totalp3 if self.totalp3!=0 else 0
+        self.individual_share1 = self.mean_contribution1 * Constants.multiplier1 if self.totalp1!=0 else 0
+        self.individual_share2 = self.mean_contribution2 * Constants.multiplier2 if self.totalp2!=0 else 0
+        self.individual_share3 = self.mean_contribution3 * Constants.multiplier3 if self.totalp3!=0 else 0
+        #if self.totalp1!=0 else 0
 
         for p in self.get_players():
             if p.role == "A":
-                p.payoff = p.endowment - p.contribution + self.individual_share1
+                p.payoff = p.endowment - p.contribution + self.mean_contribution1*Constants.multiplier1
             elif p.role == "B":
                 if p.prob <= 75:
-                    p.payoff = p.endowment - p.contribution + self.individual_share2
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution2*Constants.multiplier2
                 else:
                     p.payoff = p.endowment - p.contribution
             else:
                 if p.prob <= 50:
-                    p.payoff = p.endowment - p.contribution + self.individual_share3
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution3*Constants.multiplier3
                 else:
                     p.payoff = p.endowment - p.contribution
 

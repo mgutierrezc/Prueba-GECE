@@ -30,7 +30,7 @@ class Subsession(BaseSubsession):
             for p in self.get_players():
                 p.sent_amount = 0
                 #Assigning a zero value to avoid None values in the game
-                p.endowment = c(random.randint(1, 100))
+                p.endowment = c(random.randint(5, 20))
                 #Random creation of endowments for every round
 
 
@@ -51,43 +51,44 @@ class Group(BaseGroup):
 
     def get_endowment_A(self):
             pA = self.get_player_by_role('A') # o player 1
-            return pA.endowment
+            return c(pA.endowment)
 
     def get_endowment_B(self):
             pB = self.get_player_by_role('B') # o player 2
-            return pB.endowment
+            return c(pB.endowment)
 
     def get_sent_amount_A(self):
             pA = self.get_player_by_role('A') # o player 1
-            return pA.sent_amount
+            return c(pA.sent_amount)
 
     def get_sent_amount_B(self):
             pB = self.get_player_by_role('B') # o player 2
-            return pB.sent_amount
+            return c(pB.sent_amount)
 
     def get_afterloss_A(self):
             pA = self.get_player_by_role('A') # o player 1
-            return pA.afterloss
+            return c(pA.afterloss)
 
     def get_afterloss_B(self):
             pB = self.get_player_by_role('B') # o player 2
-            return pB.afterloss
+            return c(pB.afterloss)
 
     def get_afterearn_A(self):
             pA = self.get_player_by_role('A') # o player 1
-            return pA.afterearn
+            return c(pA.afterearn)
 
     def get_afterearn_B(self):
             pB = self.get_player_by_role('B') # o player 2
-            return pB.afterearn
+            return c(pB.afterearn)
 
     def get_payoff_A(self):
             pA = self.get_player_by_role('A') # o player 1
-            return pA.payoff
+            return c(pA.payoff)
 
     def get_payoff_B(self):
             pB = self.get_player_by_role('B') # o player 2
-            return pB.payoff
+            return c(pB.payoff)
+
 
 class Player(BasePlayer):
 
