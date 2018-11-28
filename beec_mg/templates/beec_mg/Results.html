@@ -29,21 +29,210 @@
         {% if player.roller == 2 %}
         <p>
         La contribución promedio fue {{ group.mean_contribution2 }}.
-        La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share2 }}
+        La posible retribución a recibir es {{ group.individual_share2 }}
         </p>
 
         {% else %}
         <p>
         La contribución promedio fue {{ group.mean_contribution3 }}.
-        La retribución recibida por contribuir a este proyecto grupal es {{ group.individual_share3 }}
+        La posible retribución a recibir es {{ group.individual_share3 }}
         </p>
         {% endif %}
 
     {% endif %}
 
     <p>
-    Tu pago de esta ronda es de {{ player.payoff }}.
+
+    <table class="table" style="width:500px; margin-top:20px;">
+    {% if player.prob <= 50 %}
+        {% if player.roller == 1 %}
+        <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+        <tr><td>Escenario escogido:</td><td>&nbsp;1 (Sin incertidumbre) </td><td></tr>
+
+        <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+        <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+        <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp1 }}</td><td></tr>
+
+        <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution1 }}</td><td></tr>
+
+        <tr><td>Retribución (Contribución * 1.2):</td><td>{{ group.individual_share1 }}</td><td></tr>
+
+        <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+
+        {% else %}
+            {% if player.roller == 2 %}
+            En esta ronda, se ha decidido aleatoriamente que no recibirás ninguna penalización, por lo que tu pago será
+            tu dotación - tu contribución + la retribución: {{ player.payoff }}
+            <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+            <tr><td>Escenario escogido:</td><td>&nbsp;2 (Probabilidad de no recibir retribución = 25%) </td><td></tr>
+
+            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+            <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+            <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp2 }}</td><td></tr>
+
+            <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution2 }}</td><td></tr>
+
+            <tr><td>Posible Retribución (Contribución * 2.2):</td><td>{{ group.individual_share2 }}</td><td></tr>
+
+            <tr><td>¿Se dará una retribución en esta ronda?:</td><td> Sí </td><td></tr>
+
+            <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+            {% else %}
+            En esta ronda, se ha decidido aleatoriamente que no recibirás ninguna penalización, por lo que tu pago será
+            <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+            <tr><td>Escenario escogido:</td><td>&nbsp;3 (Probabilidad de no recibir retribución = 50%) </td><td></tr>
+
+            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+            <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+            <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp3 }}</td><td></tr>
+
+            <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution3 }}</td><td></tr>
+
+            <tr><td>Posible Retribución (Contribución * 3.2):</td><td>{{ group.individual_share3 }}</td><td></tr>
+
+            <tr><td>¿Se dará una retribución en esta ronda?</td><td> Sí </td><td></tr>
+
+            <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+            {{ player.payoff }}
+            {% endif %}
+        {% endif %}
+    {% else %}
+        {% if player.prob <= 75 %}
+            {% if player.roller == 1 %}
+            En este escenario, no existe incertidumbre, por lo que tu pago será {{ player.payoff }}
+            <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+            <tr><td>Escenario escogido:</td><td>&nbsp;1 (Sin incertidumbre) </td><td></tr>
+
+            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+            <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+            <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp1 }}</td><td></tr>
+
+            <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution1 }}</td><td></tr>
+
+            <tr><td>Retribución (Contribución * 1.2):</td><td>{{ group.individual_share1 }}</td><td></tr>
+
+            <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+
+            {% else %}
+                {% if player.roller == 2 %}
+                En esta ronda, se ha decidido aleatoriamente que no recibirás ninguna penalización, por lo que tu pago será {{ player.payoff }}
+                <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+                <tr><td>Escenario escogido:</td><td>&nbsp;2 (Probabilidad de no recibir retribución = 25%) </td><td></tr>
+
+                <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+                <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+                <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp2 }}</td><td></tr>
+
+                <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution2 }}</td><td></tr>
+
+                <tr><td>Posible Retribución (Contribución * 2.2):</td><td>{{ group.individual_share2 }}</td><td></tr>
+
+                <tr><td>¿Se dará una retribución en esta ronda?:</td><td> Sí </td><td></tr>
+
+                <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+                {% else %}
+                En esta ronda, se ha decidido aleatoriamente que recibirás una penalización, por lo que tu pago no incluirá la
+                retribución y solo recibirás {{ player.payoff }}
+                <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+                <tr><td>Escenario escogido:</td><td>&nbsp;3 (Probabilidad de no recibir retribución = 50%) </td><td></tr>
+
+                <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+                <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+                <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp3 }}</td><td></tr>
+
+                <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution3 }}</td><td></tr>
+
+                <tr><td>Posible Retribución (Contribución * 3.2):</td><td>{{ group.individual_share3 }}</td><td></tr>
+
+                <tr><td>¿Se dará una retribución en esta ronda?:</td><td> No </td><td></tr>
+
+                <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+                {% endif %}
+            {% endif %}
+        {% else %}
+            {% if player.roller == 1 %}
+            En este escenario, no existe incertidumbre, por lo que tu pago será {{ player.payoff }}
+            <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+            <tr><td>Escenario escogido:</td><td>&nbsp;1 (Sin incertidumbre) </td><td></tr>
+
+            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+            <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+            <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp1 }}</td><td></tr>
+
+            <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution1 }}</td><td></tr>
+
+            <tr><td>Retribución (Contribución * 1.2):</td><td>{{ group.individual_share1 }}</td><td></tr>
+
+            <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+            {% else %}
+                {% if player.roller == 2 %}
+                En esta ronda, se ha decidido aleatoriamente que recibirás una penalización, por lo que tu pago no incluirá la
+                retribución y solo recibirás {{ player.payoff }}
+                <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+                <tr><td>Escenario escogido:</td><td>&nbsp;2 (Probabilidad de no recibir retribución = 25%) </td><td></tr>
+
+                <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+                <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+                <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp2 }}</td><td></tr>
+
+                <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution2 }}</td><td></tr>
+
+                <tr><td>Posible Retribución (Contribución * 2.2):</td><td>{{ group.individual_share2 }}</td><td></tr>
+
+                <tr><td>¿Se dará una retribución en esta ronda?:</td><td> No </td><td></tr>
+
+                <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+                {% else %}
+                En esta ronda, se ha decidido aleatoriamente que recibirás una penalización, por lo que tu pago no incluirá la
+                retribución y solo recibirás {{ player.payoff }}
+                <tr><td></td><td>&nbsp;<strong>Datos de la ronda</strong> </td><td></tr>
+
+                <tr><td>Escenario escogido:</td><td>&nbsp;3 (Probabilidad de no recibir retribución = 50%) </td><td></tr>
+
+                <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment }}</td><td></tr>
+
+                <tr><td>Contribución:</td><td>&nbsp;{{ player.contribution }}</td><td></tr>
+
+                <tr><td>Número de jugadores en el escenario:</td><td>&nbsp;{{ group.totalp3 }}</td><td></tr>
+
+                <tr><td>Contribución Promedio:</td><td>&nbsp;{{ group.mean_contribution3 }}</td><td></tr>
+
+                <tr><td>Posible Retribución (Contribución * 3.2):</td><td>{{ group.individual_share3 }}</td><td></tr>
+
+                <tr><td>¿Se dará una retribución en esta ronda?</td><td> No </td><td></tr>
+
+                <tr><td>Pago (Monto Inicial - Contribución + Retribución):</td><td>{{ player.payoff }}</td><td></tr>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
     </p>
+
+    </table>
 
     </br>
     {% next_button %}
