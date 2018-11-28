@@ -9,6 +9,9 @@ class Demographics(Page):
     form_fields = ['age',
                    'gender',
                    'field_studies',
+                   'escala_pago',
+                   'ciclo_ingreso',
+                   'ciclos_egreso',
                    'provincia',
                    'distrito',]
 
