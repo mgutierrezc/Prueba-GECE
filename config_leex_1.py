@@ -43,7 +43,7 @@ BC_jackpot = 20
 paid_game = 'trust'
 paid_round = 5
 
-
+#
 
 
 

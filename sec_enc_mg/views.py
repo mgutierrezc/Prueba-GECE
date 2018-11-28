@@ -46,13 +46,28 @@ class Results(Page):
 
     def vars_for_template(self):
         if self.group.get_endowment_A() <= self.group.get_endowment_B():
-            text_A = '. \nEl otro participante te ha enviado ' + str(self.group.get_sent_amount_B())+ ' de un total de '+ str(self.group.get_endowment_B()) +'.'
-            text_B = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_B()) +' al otro participante.\nEl monto inicial del otro jugador fue ' + str(self.group.get_endowment_A()) + ' .'
-            return {'text_A':text_A, 'text_B':text_B}
+            text_A1 = ''
+            text_A2 = ''
+            text_B1 = '+' + str(self.group.get_sent_amount_B())
+            text_B2 = '-' + str(self.group.get_sent_amount_B())
+            return {'text_A1': text_A1, 'text_A2': text_A2, 'text_B1': text_B1, 'text_B2': text_B2}
         elif self.group.get_endowment_A() > self.group.get_endowment_B():
-            text_A = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_A()) +' al otro participante.\nEl monto inicial del otro jugador fue ' + str(self.group.get_endowment_B()) + ' .'
-            text_B = '. \nEl otro participante te ha enviado ' + str(self.group.get_sent_amount_A())+ ' de un total de '+ str(self.group.get_endowment_A()) +'.'
-            return {'text_A':text_A, 'text_B':text_B}
+            text_A1 = '+' + str(self.group.get_sent_amount_A())
+            text_A2 = '-' + str(self.group.get_sent_amount_A())
+            text_B1 = ''
+            text_B2 = ''
+            return {'text_A1': text_A1, 'text_A2': text_A2, 'text_B1': text_B1, 'text_B2': text_B2}
+
+
+#    def vars_for_template(self):
+#        if self.group.get_endowment_A() <= self.group.get_endowment_B():
+#            text_A = '. \nEl otro participante te ha enviado ' + str(self.group.get_sent_amount_B())+ ' de un total de '+ str(self.group.get_endowment_B()) +'.'
+#            text_B = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_B()) +' al otro participante.\nEl monto inicial del otro jugador fue ' + str(self.group.get_endowment_A()) + ' .'
+#            return {'text_A':text_A, 'text_B':text_B}
+#        elif self.group.get_endowment_A() > self.group.get_endowment_B():
+#            text_A = ', de los cuales tu enviaste ' + str(self.group.get_sent_amount_A()) +' al otro participante.\nEl monto inicial del otro jugador fue ' + str(self.group.get_endowment_B()) + ' .'
+#            text_B = '. \nEl otro participante te ha enviado ' + str(self.group.get_sent_amount_A())+ ' de un total de '+ str(self.group.get_endowment_A()) +'.'
+#            return {'text_A':text_A, 'text_B':text_B}
 
 page_sequence = [
     Introduction,

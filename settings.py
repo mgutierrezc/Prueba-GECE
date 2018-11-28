@@ -61,7 +61,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'soles'
 USE_POINTS = False
-
+REAL_WORLD_CURRENCY_DECIMAL_PLACES = 0
 
 
 # e.g. en, de, fr, it, ja, zh-hans
@@ -143,6 +143,13 @@ SESSION_CONFIG_DEFAULTS = {
 
 
 SESSION_CONFIGS = [
+    {
+        'name': 'sesion_experimental_proyecto_altruismo',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Sesión Experimental Proyecto Altruismo",
+        'num_demo_participants': 16,
+        'app_sequence': ['prim_enc_mg', 'sec_enc_mg', 'beec_mg'],
+    },
     {
         'name': 'beec_mg',
         'real_world_currency_per_point': 0.05,
