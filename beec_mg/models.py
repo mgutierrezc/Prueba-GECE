@@ -14,8 +14,8 @@ Simple public goods game
 
 class Constants(BaseConstants):
     name_in_url = 'tiebout_incertidumbre'
-    players_per_group = 4
-    num_rounds = config_leex_1.PEMG_number_rounds #10
+    players_per_group = 8
+    num_rounds = 5 #config_leex_1.PEMG_number_rounds #10
     instructions_template = 'beec_mg/Instructions.html'
     multiplier1 = 1.5
     multiplier2 = 2
