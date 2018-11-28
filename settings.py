@@ -154,7 +154,7 @@ SESSION_CONFIGS = [
         'name': 'beec_mg',
         'real_world_currency_per_point': 0.05,
         'display_name': "Tiebout Sorting Public Goods",
-        'num_demo_participants': 4,
+        'num_demo_participants': 8,
         'app_sequence': ['beec_mg'],
     },
     {
