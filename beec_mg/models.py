@@ -17,9 +17,9 @@ class Constants(BaseConstants):
     players_per_group = 4
     num_rounds = config_leex_1.PEMG_number_rounds #10
     instructions_template = 'beec_mg/Instructions.html'
-    multiplier1 = 2
-    multiplier2 = 3
-    multiplier3 = 4
+    multiplier1 = 1.5
+    multiplier2 = 2
+    multiplier3 = 2.5
     i = 1
     j = 1
     k = 1
@@ -28,7 +28,7 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         gamma = random.randint(1, 100)
         for p in self.get_players():
-            p.endowment = random.randint(1, 100)
+            p.endowment = random.randint(1, 15)
             p.prob = gamma
             # Random creation of endowments for every round
 
@@ -104,18 +104,27 @@ class Group(BaseGroup):
         #if self.totalp1!=0 else 0
 
         for p in self.get_players():
-            if p.role == "A":
-                p.payoff = p.endowment - p.contribution + self.mean_contribution1*Constants.multiplier1
-            elif p.role == "B":
-                if p.prob <= 75:
-                    p.payoff = p.endowment - p.contribution + self.mean_contribution2*Constants.multiplier2
-                else:
+            if p.prob<=50:
+                if p.roller == 3:
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution3 * Constants.multiplier3
+                elif p.roller == 2:
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution2 * Constants.multiplier2
+                elif p.roller == 1:
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution1 * Constants.multiplier1
+            elif 50 < p.prob <= 75:
+                if p.roller == 3:
                     p.payoff = p.endowment - p.contribution
+                elif p.roller == 2:
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution2 * Constants.multiplier2
+                elif p.roller == 1:
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution1 * Constants.multiplier1
             else:
-                if p.prob <= 50:
-                    p.payoff = p.endowment - p.contribution + self.mean_contribution3*Constants.multiplier3
-                else:
+                if p.roller == 3:
                     p.payoff = p.endowment - p.contribution
+                elif p.roller == 2:
+                    p.payoff = p.endowment - p.contribution
+                elif p.roller == 1:
+                    p.payoff = p.endowment - p.contribution + self.mean_contribution1 * Constants.multiplier1
 
 class Player(BasePlayer):
     prob =models.IntegerField(min=0, max=100)

@@ -16,17 +16,21 @@
 
             <tr><td></td><td>&nbsp;<u>Tus&nbsp;datos</u>&emsp;</td><td><u>Datos de tu contraparte</u></td></tr>
 
-            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_endowment_B|c }}</td></tr>
+            <tr><td>Monto inicial:</td><td>&nbsp;&nbsp;{{ player.endowment|c }}</td><td>&emsp;&emsp;&emsp;&nbsp;{{ group.get_endowment_B|c }}</td></tr>
 
-            <tr><td>Monto enviado:</td><td>&nbsp;{{ player.sent_amount|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_sent_amount_B|c }}</td></tr>
+            <tr><td>Monto enviado:</td><td>&nbsp;-{{ player.sent_amount|c }}</td><td>&emsp;&emsp;&emsp;-{{ group.get_sent_amount_B|c }}</td></tr>
+
+            <tr><td>Monto recibido:</td><td>&nbsp;+{{ group.get_sent_amount_B|c }}</td><td>&emsp;&emsp;&emsp;+{{ player.sent_amount|c }}</td></tr>
 
         {% else %}
 
             <tr><td></td><td>&nbsp;<u>Tus&nbsp;datos</u>&emsp;</td><td><u>Datos de tu contraparte</u></td></tr>
 
-            <tr><td>Monto inicial:</td><td>&nbsp;{{ player.endowment|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_endowment_A|c }}</td></tr>
+            <tr><td>Monto inicial:</td><td>&nbsp;&nbsp;{{ player.endowment|c }}</td><td>&emsp;&emsp;&emsp;&nbsp;{{ group.get_endowment_A|c }}</td></tr>
 
-            <tr><td>Monto enviado:</td><td>&nbsp;{{ player.sent_amount|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_sent_amount_A|c }}</td></tr>
+            <tr><td>Monto enviado:</td><td>&nbsp;-{{ player.sent_amount|c }}</td><td>&emsp;&emsp;&emsp;-{{ group.get_sent_amount_A|c }}</td></tr>
+
+            <tr><td>Monto recibido:</td><td>&nbsp;+{{ group.get_sent_amount_A|c }}</td><td>&emsp;&emsp;&emsp;+{{ player.sent_amount|c }}</td></tr>
 
         {% endif %}
 
@@ -34,11 +38,11 @@
 
         {% if player.id_in_group == 1 %}
 
-            <tr><td><strong>Pagos:</strong></td><td>&nbsp;{{ group.get_payoff_A|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_payoff_B|c }}</td></tr>
+            <tr><td><strong>Pagos:</strong></td><td>&nbsp;&nbsp;{{ group.get_payoff_A|c }}</td><td>&emsp;&emsp;&emsp;&nbsp;{{ group.get_payoff_B|c }}</td></tr>
 
         {% else %}
 
-            <tr><td><strong>Pagos:</strong></td><td>&nbsp;{{ group.get_payoff_B|c }}</td><td>&emsp;&emsp;&nbsp;{{ group.get_payoff_A|c }}</td></tr>
+            <tr><td><strong>Pagos:</strong></td><td>&nbsp;&nbsp;{{ group.get_payoff_B|c }}</td><td>&emsp;&emsp;&emsp;&nbsp;{{ group.get_payoff_A|c }}</td></tr>
 
         {% endif %}
 
