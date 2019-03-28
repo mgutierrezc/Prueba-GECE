@@ -1,12 +1,12 @@
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
-    Currency as c, currency_range
+    Currency as c, currency_range,
 )
 import random
 
 
 class Constants(BaseConstants):
-    name_in_url = 'survey'
+    name_in_url = 'survey_sr'
     players_per_group = None
     num_rounds = 1
 
@@ -33,59 +33,29 @@ class Player(BasePlayer):
         verbose_name='¿Cuál es tu género?',
         widget=widgets.RadioSelect())
 
-    provincia= models.CharField(
-        verbose_name='¿Indique la provincia en la que reside?',
-        choices=['Lima', 'Callao', 'Otro'],
-        widget=widgets.RadioSelect )
-    distrito = models.PositiveIntegerField(
+    carrera_padres= models.CharField(
+        verbose_name='¿Alguno de tus padres estudió la misma carrera que tú?',
+        choices=['Si', 'No'],
+       widget=widgets.RadioSelect )
+
+    escala = models.PositiveIntegerField(
         choices=[
-            [0, 'Callao'],
-            [1, 'Ancón'],
-            [2, 'Ate'],
-            [3, 'Barranco'],
-            [4, 'Breña'],
-            [5, 'Carabayllo'],
-            [6, 'Chaclacayo'],
-            [7, 'Chorrillos'],
-            [8, 'Cieneguilla'],
-            [9, 'Comas'],
-            [10, 'El Agustino'],
-            [11, 'Independencia'],
-            [12, 'Jesús María'],
-            [13, 'La Molina'],
-            [14, 'La Victoria'],
-            [15, 'Lima'],
-            [16, 'Lince'],
-            [17, 'Los Olivos'],
-            [18, 'Lurigancho'],
-            [19, 'Lurín'],
-            [20, 'Magdalena del Mar'],
-            [21, 'Miraflores'],
-            [22, 'Pachacamac'],
-            [23, 'Pucusana'],
-            [24, 'Pueblo Libre'],
-            [25, 'Puente Piedra'],
-            [26, 'Punta Hermosa'],
-            [27, 'Punta Negra'],
-            [28, 'Rímac'],
-            [29, 'San Bartolo'],
-            [30, 'San Borja'],
-            [31, 'San Isidro'],
-            [32, 'San Juan de Lurigancho'],
-            [33, 'San Juan de Miraflores'],
-            [34, 'San Luis'],
-            [35, 'San Martín de Porres'],
-            [36, 'San Miguel'],
-            [37, 'Santa Anita'],
-            [38, 'Santa María del Mar'],
-            [39, 'Santa Rosa'],
-            [40, 'Santiago de Surco'],
-            [41, 'Surquillo'],
-            [42, 'Villa El Salvador'],
-            [43, 'Villa María del Triunfo'],
-            [99, 'Otro / No Aplica']
+            [0, 'Escala 1 (antigua)'],
+            [1, 'Escala 2 (antigua)'],
+            [2, 'Escala 3 (antigua)'],
+            [3, 'Escala 4 (antigua)'],
+            [4, 'Escala 5 (antigua)'],
+            [5, 'Escala 1 (nueva)'],
+            [6, 'Escala 2 (nueva)'],
+            [7, 'Escala 3 (nueva)'],
+            [8, 'Escala 4 (nueva)'],
+            [9, 'Escala 5 (nueva)'],
+            [10, 'Escala 6 (nueva)'],
+            [11, 'Escala 7 (nueva)'],
+            [12, 'Escala 8 (nueva)'],
+            [13, 'Escala 9 (nueva)'],
         ],
-        verbose_name='¿Cuál es su distrito de residencia? (seleccione otro si su provincia de residencia no es Lima Metropolitana ni el Callao)',
+        verbose_name='¿En qué escala de pago te encuentras',
     )
 
 
@@ -131,7 +101,24 @@ class Player(BasePlayer):
             [38, 'Antropología'],
             [99, 'Otro / No Aplica']
         ],
-        verbose_name='¿Cuál es su principal campo de estudios?',
+        verbose_name='¿Qué carrera estudias?',
+    )
+
+    ciclo = models.PositiveIntegerField(
+        choices=[
+            [1, '1'],
+            [2, '2'],
+            [3, '3'],
+            [4, '4'],
+            [5, '5'],
+            [6, '6'],
+            [7, '7'],
+            [8, '8'],
+            [9, '9'],
+            [10, '10'],
+            [11, '11'],
+        ],
+        verbose_name='¿En qué ciclo de la carrera te encuentras?',
     )
 
     # crt_bat = models.PositiveIntegerField(

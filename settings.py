@@ -144,6 +144,13 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'tesis_sr',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Sesión Tesis Santiago Risco",
+        'num_demo_participants': 4,
+        'app_sequence': ['prisoner_sr', 'survey_sr'],
+    },
+    {
         'name': 'beec_mg',
         'real_world_currency_per_point': 0.05,
         'display_name': "Tiebout Sorting Public Goods",
@@ -169,7 +176,7 @@ SESSION_CONFIGS = [
         'real_world_currency_per_point': 0.01,
         'display_name': "LEEX PILOTO",
         'num_demo_participants': 4,
-        'app_sequence': ['ultimatum', 'public_goods', 'trust', 'guess_two_thirds', 'payment_info', 'survey'],
+        'app_sequence': ['ultimatum', 'public_goods', 'trust', 'guess_two_thirds', 'payment_info', 'survey_sr'],
     },
     {
         'name': 'prueba_aleatorizacion',
@@ -220,10 +227,10 @@ SESSION_CONFIGS = [
         'app_sequence': ['ultimatum'],
     },
     {
-         'name': 'survey',
+         'name': 'survey_sr',
          'display_name': "Survey",
          'num_demo_participants': 1,
-         'app_sequence': ['survey', 'payment_info'],
+         'app_sequence': ['survey_sr', 'payment_info'],
      },
     {
         'name': 'Session_Real',
@@ -240,10 +247,10 @@ SESSION_CONFIGS = [
     #      'app_sequence': ['dictator', 'payment_info'],
     # },
     # {
-    #     'name': 'survey',
+    #     'name': 'survey_sr',
     #     'display_name': "Survey",
     #     'num_demo_participants': 1,
-    #     'app_sequence': ['survey', 'payment_info'],
+    #     'app_sequence': ['survey_sr', 'payment_info'],
     # },
     # {
     #     'name': 'quiz',
@@ -252,10 +259,10 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['quiz'],
     # },
     # {
-    #     'name': 'prisoner',
+    #     'name': 'prisoner_sr',
     #     'display_name': "Prisoner's Dilemma",
     #     'num_demo_participants': 2,
-    #     'app_sequence': ['prisoner', 'payment_info'],
+    #     'app_sequence': ['prisoner_sr', 'payment_info'],
     # },
     # {
     #     'name': 'ultimatum_strategy',
@@ -374,7 +381,7 @@ SESSION_CONFIGS = [
     #     'name': 'public_goods_simple',
     #     'display_name': "Public Goods (simple version from tutorial)",
     #     'num_demo_participants': 3,
-    #     'app_sequence': ['public_goods_simple', 'survey', 'payment_info'],
+    #     'app_sequence': ['public_goods_simple', 'survey_sr', 'payment_info'],
     # },
     # {
     #     'name': 'trust_simple',

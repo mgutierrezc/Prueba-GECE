@@ -6,11 +6,12 @@ from .models import Constants
 
 class Demographics(Page):
     form_model = models.Player
-    form_fields = ['age',
-                   'gender',
+    form_fields = ['gender',
                    'field_studies',
-                   'provincia',
-                   'distrito',]
+                   'escala',
+                   'ciclo',
+                   'age',
+                   'carrera_padres', ]
 
 
 class gracias(Page):

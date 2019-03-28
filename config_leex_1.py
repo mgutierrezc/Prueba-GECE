@@ -12,7 +12,7 @@ paid_game_display = {
 # GAME PARAMETERS
 
 # GAME ORDER. Change every session!
-app_sequence = ['public_goods', 'trust', 'ultimatum', 'guess_two_thirds', 'payment_info', 'survey']
+app_sequence = ['public_goods', 'trust', 'ultimatum', 'guess_two_thirds', 'payment_info', 'survey_sr']
 #
 # participation_fee (soles)
 participation_fee = 5
@@ -37,6 +37,10 @@ TG_endowment = 8
 BC_number_rounds = 10
 BC_jackpot = 20
 
+# # public goods params
+PDsr_number_rounds = 15
+PDsr_endowment = 8
+
 
 
 # paid_game in ['ultimatum', 'public_goods', 'trust', 'guess_two_thirds']
@@ -45,19 +49,16 @@ paid_round = 5
 
 
 
-
-
-
 ##################################################################################
 # Order Record
 
 # Setp 6 at 1pm:
-# ['ultimatum', 'public_goods', 'trust', 'guess_two_thirds', 'payment_info', 'survey']
+# ['ultimatum', 'public_goods', 'trust', 'guess_two_thirds', 'payment_info', 'survey_sr']
 # paid: PG, t=2
 
 
 # Setp 6 at 5pm:
-# ['public_goods', 'trust', 'ultimatum', 'guess_two_thirds', 'payment_info', 'survey']
+# ['public_goods', 'trust', 'ultimatum', 'guess_two_thirds', 'payment_info', 'survey_sr']
 # paid: UG, t=5
 
 
@@ -69,7 +70,7 @@ paid_round = 5
 ## TESTING PARAMS  GAME PARAMETERS
 
 # GAME ORDER. Change every session!
-#app_sequence = [ 'ultimatum', 'trust',  'payment_info', 'survey']
+#app_sequence = [ 'ultimatum', 'trust',  'payment_info', 'survey_sr']
 #
 # participation_fee (soles)
 #participation_fee = 5

@@ -25,9 +25,9 @@ SESSION_CONFIGS = [
         'app_sequence': ['guess_two_thirds', 'payment_info'],
     },
     {
-        'name': 'survey',
+        'name': 'survey_sr',
         'num_demo_participants': 1,
-        'app_sequence': ['survey', 'payment_info'],
+        'app_sequence': ['survey_sr', 'payment_info'],
     },
     {
         'name': 'quiz',
@@ -100,10 +100,10 @@ INSTALLED_APPS = ['otree']
 ###     'app_sequence': ['trust', 'payment_info'],
 ### },
 ### {
-###     'name': 'prisoner',
+###     'name': 'prisoner_sr',
 ###     'display_name': "Prisoner's Dilemma",
 ###     'num_demo_participants': 2,
-###     'app_sequence': ['prisoner', 'payment_info'],
+###     'app_sequence': ['prisoner_sr', 'payment_info'],
 ### },
 ### {
 ###     'name': 'ultimatum',

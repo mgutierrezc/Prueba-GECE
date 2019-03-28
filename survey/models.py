@@ -6,7 +6,7 @@ import random
 
 
 class Constants(BaseConstants):
-    name_in_url = 'survey'
+    name_in_url = 'survey_sr'
     players_per_group = None
     num_rounds = 1
 
