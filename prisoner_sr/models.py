@@ -5,7 +5,7 @@ from otree.api import (
 from . import config as config_py
 import config_leex_1
 import random
-
+import math
 
 doc = """
 This is a one-shot "Prisoner's Dilemma". Two players are asked separately
@@ -23,14 +23,15 @@ class Constants(BaseConstants):
 
     config = config_py
 
+    one = 1
 
     # payoff if 1 player defects and the other cooperates""",
-    betray_payoff = c(12)
-    betrayed_payoff = c(3)
+    betray_payoff = float(12)
+    betrayed_payoff = float(3)
 
     # payoff if both players cooperate or both defect
-    both_cooperate_payoff = c(9)
-    both_defect_payoff = c(6)
+    both_cooperate_payoff = float(9)
+    both_defect_payoff = float(6)
 
 #    data = [
 #        [
@@ -54,7 +55,10 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def constant_sum(self):
+        return (self.round_number - 1)*0.1
+#problema actual, debo sumar un float con el resultado de la línea 59
+
 #    def in_round(self, round_number):
 #        if self.round_number == 1:
 #            return 12
@@ -81,13 +85,13 @@ class Player(BasePlayer):
         payoff_matrix = {
             'Cooperate':
                 {
-                    'Cooperate': Constants.both_cooperate_payoff,
-                    'Defect': Constants.betrayed_payoff
+                    'Cooperate': Constants.both_cooperate_payoff + Subsession.constant_sum,
+                    'Defect': Constants.betrayed_payoff + Subsession.constant_sum
                 },
             'Defect':
                 {
-                    'Cooperate': Constants.betray_payoff,
-                    'Defect': Constants.both_defect_payoff
+                    'Cooperate': Constants.betray_payoff + Subsession.constant_sum,
+                    'Defect': Constants.both_defect_payoff + Subsession.constant_sum
                 }
         }
 

@@ -13,6 +13,7 @@ class Decision(Page):
     form_fields = ['decision']
 #creo que debo definir aquí los valores con un IF que dependa de las rondas
 
+
 class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
         for p in self.group.get_players():
