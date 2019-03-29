@@ -148,7 +148,7 @@ SESSION_CONFIGS = [
         'real_world_currency_per_point': 0.05,
         'display_name': "Sesión Tesis Santiago Risco",
         'num_demo_participants': 4,
-        'app_sequence': ['prisoner_sr', 'survey_sr'],
+        'app_sequence': ['survey_sr'],
     },
     {
         'name': 'beec_mg',

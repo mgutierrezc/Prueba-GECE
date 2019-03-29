@@ -14,6 +14,18 @@ class Demographics(Page):
                    'carrera_padres', ]
 
 
+class CognitiveReflectionTest(Page):
+    form_model = models.Player
+    form_fields = ['preg11',
+                   'preg12', ]
+
+
+class SegundoCaso(Page):
+    form_model = models.Player
+    form_fields = ['preg21',
+                   'preg22', ]
+
+
 class gracias(Page):
 
     def vars_for_template(self):
@@ -24,6 +36,8 @@ class gracias(Page):
 
 
 page_sequence = [
+    CognitiveReflectionTest,
+    SegundoCaso,
     Demographics,
     gracias,
 ]

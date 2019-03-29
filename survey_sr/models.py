@@ -21,6 +21,7 @@ class Player(BasePlayer):
     question_id = models.PositiveIntegerField()
     question = models.CharField()
     submitted_answer = models.CharField(widget=widgets.RadioSelect())
+
     def current_question(self):
         return self.session.vars['questions'][self.round_number - 1]
 
@@ -36,7 +37,7 @@ class Player(BasePlayer):
     carrera_padres= models.CharField(
         verbose_name='¿Alguno de tus padres estudió la misma carrera que tú?',
         choices=['Si', 'No'],
-       widget=widgets.RadioSelect )
+        widget=widgets.RadioSelect)
 
     escala = models.PositiveIntegerField(
         choices=[
@@ -57,7 +58,6 @@ class Player(BasePlayer):
         ],
         verbose_name='¿En qué escala de pago te encuentras',
     )
-
 
     field_studies = models.PositiveIntegerField(
         choices=[
@@ -121,6 +121,25 @@ class Player(BasePlayer):
         verbose_name='¿En qué ciclo de la carrera te encuentras?',
     )
 
+    preg11 = models.CharField(
+        choices=['Si', 'No'],
+        verbose_name='¿Cree que el dueño notificaría el error?',
+        widget=widgets.RadioSelect())
+
+    preg12 = models.CharField(
+        choices=['Si', 'No'],
+        verbose_name='¿Usted notificaría el error?',
+        widget=widgets.RadioSelect())
+
+    preg21 = models.CharField(
+        choices=['Si', 'No'],
+        verbose_name='¿Cree que si un extraño encontrara el sobre se lo devolvería?',
+        widget=widgets.RadioSelect())
+
+    preg22 = models.CharField(
+        choices=['Si', 'No'],
+        verbose_name='¿Si usted encontrara el sobre que se le cayó a otra persona, se lo devolvería?',
+        widget=widgets.RadioSelect())
     # crt_bat = models.PositiveIntegerField(
     #     verbose_name='''
     #     Un bate y una pelota cuesta 22 soles en total.
