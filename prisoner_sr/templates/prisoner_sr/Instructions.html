@@ -36,14 +36,17 @@
         <tr>
             <th rowspan=2><span class="rotate90">Usted</span></th>
             <th>C</th>
-            <td>{{ Constants.both_cooperate_payoff }}, {{ Constants.both_cooperate_payoff }}</td>
-            <td>{{ Constants.betrayed_payoff }}, {{ Constants.betray_payoff }}</td>
+            <td>{{ Introduction.both_cooperate_payoff }}, {{ p.both_cooperate_payoff }}</td>
+            <td>{{ p.betrayed_payoff }}, {{ p.betray_payoff }}</td>
         </tr>
         <tr>
             <th>D</th>
-            <td>{{ Constants.betray_payoff }}, {{ Constants.betrayed_payoff }}</td>
-            <td>{{ Constants.both_defect_payoff }}, {{ Constants.both_defect_payoff }}</td>
+            <td>{{ p.betray_payoff }}, {{ p.betrayed_payoff }}</td>
+            <td>{{ p.both_defect_payoff }}, {{ p.both_defect_payoff }}</td>
         </tr>
     </table>
+    <p>
+        Si yo escojo C y el otro jugador escoge C, entonces gano {{ Constants.both_cooperate_payoff }}.
+    </p>
 
 </div>

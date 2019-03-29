@@ -26,12 +26,12 @@ class Constants(BaseConstants):
     one = 1
 
     # payoff if 1 player defects and the other cooperates""",
-    betray_payoff = float(12)
-    betrayed_payoff = float(3)
+    #betray_payoff = float(12)
+    #betrayed_payoff = float(3)
 
     # payoff if both players cooperate or both defect
-    both_cooperate_payoff = float(9)
-    both_defect_payoff = float(6)
+    #both_cooperate_payoff = float(9)
+    #both_defect_payoff = float(6)
 
 #    data = [
 #        [
@@ -56,7 +56,13 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def constant_sum(self):
-        return (self.round_number - 1)*0.1
+        c_sum = (self.round_number - 1)*0.1
+        return c_sum
+
+    def creating_session(self):
+        for p in self.get_players():
+            p.betray_payoff = p.betray_payoff+(self.round_number - 1)*0.1
+
 #problema actual, debo sumar un float con el resultado de la línea 59
 
 #    def in_round(self, round_number):
@@ -77,6 +83,28 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect()
     )
 
+    betray_payoff = models.FloatField(
+        initial=12
+    )
+
+    betrayed_payoff = models.FloatField(
+        initial=3
+    )
+
+    both_cooperate_payoff = models.FloatField(
+        initial=9
+    )
+
+    both_defect_payoff = models.FloatField(
+        initial=6
+    )
+    #betray_payoff = float(12)
+    #betrayed_payoff = float(3)
+
+    # payoff if both players cooperate or both defect
+    #both_cooperate_payoff = float(9)
+    #both_defect_payoff = float(6)
+
     def other_player(self):
         return self.get_others_in_group()[0]
 
@@ -85,14 +113,19 @@ class Player(BasePlayer):
         payoff_matrix = {
             'Cooperate':
                 {
-                    'Cooperate': Constants.both_cooperate_payoff + Subsession.constant_sum,
-                    'Defect': Constants.betrayed_payoff + Subsession.constant_sum
+                    'Cooperate': self.both_cooperate_payoff,
+                    'Defect': self.betrayed_payoff
                 },
             'Defect':
                 {
-                    'Cooperate': Constants.betray_payoff + Subsession.constant_sum,
-                    'Defect': Constants.both_defect_payoff + Subsession.constant_sum
+                    'Cooperate': self.betray_payoff,
+                    'Defect': self.both_defect_payoff
                 }
         }
 
         self.payoff = payoff_matrix[self.decision][self.other_player().decision]
+
+#+ Subsession.constant_sum,
+#+ Subsession.constant_sum
+#+ Subsession.constant_sum,
+#+ Subsession.constant_sum
