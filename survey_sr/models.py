@@ -66,7 +66,7 @@ class Player(BasePlayer):
             [3, 'Biología'],
             [4, 'Química'],
             [5, 'Ingeniería'],
-            [6, 'Filisofía'],
+            [6, 'Filosofía'],
             [7, 'Psicología'],
             [8, 'Física'],
             [9, 'Derecho'],
@@ -138,8 +138,33 @@ class Player(BasePlayer):
 
     preg22 = models.CharField(
         choices=['Si', 'No'],
-        verbose_name='¿Si usted encontrara el sobre que se le cayó a otra persona, se lo devolvería?',
+        verbose_name='¿Si usted encontrara el sobre que se le cayó a otra persona con 1000 soles, se lo devolvería?',
         widget=widgets.RadioSelect())
+
+    preg31 = models.IntegerField(
+        verbose_name='¿Cuánto pondría en la cuenta pública?',
+        min=0, max=10,
+        initial=0,
+        widget=widgets.SliderInput())
+
+    preg32 = models.IntegerField(
+        verbose_name='Si fueran 100 soles en vez de 10. ¿Cuánto pondría en la cuenta pública?',
+        min=0, max=100,
+        initial=0,
+        widget=widgets.SliderInput())
+
+    preg33 = models.IntegerField(
+        verbose_name='Si fueran 1000 soles en vez de 10. ¿Cuánto pondría en la cuenta pública?',
+        min=0, max=1000,
+        initial=0,
+        widget=widgets.SliderInput())
+
+    preg34 = models.IntegerField(
+        verbose_name='Si fueran 100000 soles en vez de 10. ¿Cuánto pondría en la cuenta pública?',
+        min=0, max=100000,
+        initial=0,
+        widget=widgets.SliderInput())
+
     # crt_bat = models.PositiveIntegerField(
     #     verbose_name='''
     #     Un bate y una pelota cuesta 22 soles en total.

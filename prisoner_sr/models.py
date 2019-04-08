@@ -26,32 +26,18 @@ class Constants(BaseConstants):
     one = 1
 
     # payoff if 1 player defects and the other cooperates""",
-    #betray_payoff = float(12)
-    #betrayed_payoff = float(3)
+    betray_payoff = c(20)
+    betrayed_payoff = c(5)
 
     # payoff if both players cooperate or both defect
-    #both_cooperate_payoff = float(9)
-    #both_defect_payoff = float(6)
+    both_cooperate_payoff = c(15)
+    both_defect_payoff = c(10)
 
-#    data = [
-#        [
-#            {"betray_payoff": 12, "betrayed_payoff": 3, "both_cooperate_payoff": 9, "both_defect_payoff": 6},
-#            {"betray_payoff": 12.1, "betrayed_payoff": 3.1, "both_cooperate_payoff": 9.1, "both_defect_payoff": 6.1},
-#            {"betray_payoff": 12.2, "betrayed_payoff": 3.2, "both_cooperate_payoff": 9.2, "both_defect_payoff": 6.2},
-#            {"betray_payoff": 12.3, "betrayed_payoff": 3.3, "both_cooperate_payoff": 9.3, "both_defect_payoff": 6.3},
-#            {"betray_payoff": 12.4, "betrayed_payoff": 3.4, "both_cooperate_payoff": 9.4, "both_defect_payoff": 6.4},
-#            {"betray_payoff": 12.5, "betrayed_payoff": 3.5, "both_cooperate_payoff": 9.5, "both_defect_payoff": 6.5},
-#            {"betray_payoff": 12.6, "betrayed_payoff": 3.6, "both_cooperate_payoff": 9.6, "both_defect_payoff": 6.6},
-#            {"betray_payoff": 12.7, "betrayed_payoff": 3.7, "both_cooperate_payoff": 9.7, "both_defect_payoff": 6.7},
-#            {"betray_payoff": 12.8, "betrayed_payoff": 3.8, "both_cooperate_payoff": 9.8, "both_defect_payoff": 6.8},
-#            {"betray_payoff": 12.9, "betrayed_payoff": 3.9, "both_cooperate_payoff": 9.9, "both_defect_payoff": 6.9},
-#            {"betray_payoff": 13, "betrayed_payoff": 4, "both_cooperate_payoff": 10, "both_defect_payoff": 7},
-#            {"betray_payoff": 13.1, "betrayed_payoff": 4.1, "both_cooperate_payoff": 10.1, "both_defect_payoff": 7.1},
-#            {"betray_payoff": 13.2, "betrayed_payoff": 4.2, "both_cooperate_payoff": 10.2, "both_defect_payoff": 7.2},
-#            {"betray_payoff": 13.3, "betrayed_payoff": 4.3, "both_cooperate_payoff": 10.3, "both_defect_payoff": 7.3},
-#            {"betray_payoff": 13.4, "betrayed_payoff": 4.4, "both_cooperate_payoff": 10.4, "both_defect_payoff": 7.4}
-#        ]
-#    ]
+    list_betray_payoff = [20, 20.1, 20.2, 19.9, 20.3, 19.7, 20.2, 20, 19.9, 20.1, 19.8, 19.7, 20.3, 20, 19.8]
+    list_betrayed_payoff = [5, 5.1, 5.2, 4.9, 5.3, 4.7, 5.2, 5, 4.9, 5.1, 4.8, 4.7, 5.3, 5, 4.8]
+    list_both_cooperate_payoff = [15, 15.1, 15.2, 14.9, 15.3, 14.7, 15.2, 15, 14.9, 15.1, 14.8, 14.7, 15.3, 15,
+                                  14.8]
+    list_both_defect_payoff = [10, 10.1, 10.2, 9.9, 10.3, 9.7, 10.2, 10, 9.9, 10.1, 9.8, 9.7, 10.3, 10, 9.8]
 
 
 class Subsession(BaseSubsession):
@@ -62,14 +48,6 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         for p in self.get_players():
             p.betray_payoff = p.betray_payoff+(self.round_number - 1)*0.1
-
-#problema actual, debo sumar un float con el resultado de la línea 59
-
-#    def in_round(self, round_number):
-#        if self.round_number == 1:
-#            return 12
-#        elif self.round_number == 2:
-#            return 13
 
 
 class Group(BaseGroup):
@@ -98,6 +76,7 @@ class Player(BasePlayer):
     both_defect_payoff = models.FloatField(
         initial=6
     )
+
     #betray_payoff = float(12)
     #betrayed_payoff = float(3)
 
@@ -110,16 +89,24 @@ class Player(BasePlayer):
 
     def set_payoff(self):
 
+        display_both_cooperate_payoff = Constants.list_both_cooperate_payoff[self.round_number - 1]
+
+        display_betrayed_payoff = Constants.list_betrayed_payoff[self.round_number - 1]
+
+        display_betray_payoff = Constants.list_betray_payoff[self.round_number - 1]
+
+        display_both_defect_payoff = Constants.list_both_defect_payoff[self.round_number-1]
+
         payoff_matrix = {
             'Cooperate':
                 {
-                    'Cooperate': self.both_cooperate_payoff,
-                    'Defect': self.betrayed_payoff
+                    'Cooperate': display_both_cooperate_payoff,
+                    'Defect': display_betrayed_payoff
                 },
             'Defect':
                 {
-                    'Cooperate': self.betray_payoff,
-                    'Defect': self.both_defect_payoff
+                    'Cooperate': display_betray_payoff,
+                    'Defect': display_both_defect_payoff
                 }
         }
 

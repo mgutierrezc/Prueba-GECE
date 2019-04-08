@@ -5,7 +5,10 @@ from prisoner_sr import models
 
 
 class Introduction(Page):
-    timeout_seconds = 100
+    timeout_seconds = 60
+
+    def is_displayed(self):
+        return self.round_number == 1
 
 
 class Decision(Page):

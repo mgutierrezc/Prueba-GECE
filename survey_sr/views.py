@@ -26,6 +26,14 @@ class SegundoCaso(Page):
                    'preg22', ]
 
 
+class Question(Page):
+    form_model = models.Player
+    form_fields = ['preg31',
+                   'preg32',
+                   'preg33',
+                   'preg34']
+
+
 class gracias(Page):
 
     def vars_for_template(self):
@@ -38,6 +46,7 @@ class gracias(Page):
 page_sequence = [
     CognitiveReflectionTest,
     SegundoCaso,
+    Question,
     Demographics,
     gracias,
 ]
