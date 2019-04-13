@@ -36,7 +36,7 @@ class Player(BasePlayer):
     provincia= models.CharField(
         verbose_name='¿Indique la provincia en la que reside?',
         choices=['Lima', 'Callao', 'Otro'],
-        widget=widgets.RadioSelect )
+        widget=widgets.RadioSelect())
     ciclo_ingreso = models.PositiveIntegerField(
         choices=[
             [0, '2018 2'],
@@ -161,7 +161,7 @@ class Player(BasePlayer):
             [3, 'Biología'],
             [4, 'Química'],
             [5, 'Ingeniería'],
-            [6, 'Filisofía'],
+            [6, 'Filosofía'],
             [7, 'Psicología'],
             [8, 'Física'],
             [9, 'Derecho'],
@@ -190,7 +190,7 @@ class Player(BasePlayer):
             [32, 'Ciencias Políticas'],
             [33, 'Sociología'],
             [34, 'Ciencias del Deporte'],
-            [35, 'Prehistoria e Historia temprana'],
+            [35, 'Prehistoria e Historia Temprana'],
             [36, 'Odontología'],
             [37, 'Tecnología Médica'],
             [38, 'Antropología'],

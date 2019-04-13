@@ -47,6 +47,7 @@ class Player(BasePlayer):
 
     def set_payoff(self):
 
+        #La solución fea es hacer que la matriz de pagos cambie por ronda
         payoff_matrix = {
             'Cooperate':
                 {

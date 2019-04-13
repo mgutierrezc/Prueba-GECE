@@ -1,0 +1,49 @@
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg">
+
+    <h3 class="panel-sub-heading">
+        Instrucciones
+    </h3>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'global/matrix.css' %}"/>
+
+    <p>
+        En este estudio jugará 15 rondas de un juego. En cada ronda jugará con otra persona que se encuentra en
+        el laboratorio escogida al azar.
+    </p>
+    <p>
+        Usted tiene las opciones de escoger C o D. El pago que recibirá dependerá tanto de su respuesta cómo de la del
+        otro participante.
+    </p>
+    <p>
+        Los pagos variarán en cada ronda, por lo que sugerimos que vea la matriz de pagos y los posibles resultados antes
+        de realizar su elección.
+    </p>
+    <p><i>En cada celda el monto de la izquierda es el pago para usted y el de la derecha es el pago para el otro participante.</i></p>
+
+    <table class='table table-bordered text-center'
+           style='width: auto; margin: auto'>
+        <tr>
+            <th colspan=2 rowspan=2></th>
+            <th colspan=2>El Otro Participante</th>
+        </tr>
+        <tr>
+            <th>C</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <th rowspan=2><span class="rotate90">Usted</span></th>
+            <th>C</th>
+            <td>{{ Constants.both_cooperate_payoff }}, {{ Constants.both_cooperate_payoff }}</td>
+            <td>{{ Constants.betrayed_payoff }}, {{ Constants.betray_payoff }}</td>
+        </tr>
+        <tr>
+            <th>D</th>
+            <td>{{ Constants.betray_payoff }}, {{ Constants.betrayed_payoff }}</td>
+            <td>{{ Constants.both_defect_payoff }}, {{ Constants.both_defect_payoff }}</td>
+        </tr>
+    </table>
+
+</div>

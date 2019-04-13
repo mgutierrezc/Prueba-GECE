@@ -25,6 +25,9 @@ UG_endowment = 20
 # # primer engargo mg params
 PEMG_number_rounds = 10
 #
+# # Tesis SR
+PDsr_number_rounds=4
+#
 # # public goods params
 PG_number_rounds = 10
 PG_endowment = 8
