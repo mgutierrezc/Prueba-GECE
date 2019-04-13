@@ -1,0 +1,203 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Tu Elección
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global/matrix.css' %}" />
+
+    <style>
+        .highlight-row-on-hover:hover td {
+            background-color: #fcf8e3;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">El Otro Participante</th>
+            </tr>
+            <tr>
+                <th>C</th>
+                <th>D</th>
+            </tr>
+            <tr class="highlight-row-on-hover">
+                <th rowspan="2"><span class="rotate90">Usted</span></th>
+                <td><button name="decision" value="Cooperate" class="btn btn-primary btn-large">C</button></td>
+
+                {% if subsession.round_number == 1 %}
+
+                    <td>{{ Constants.list_both_cooperate_payoff.0|c }}, {{ Constants.list_both_cooperate_payoff.0|c }}</td>
+                    <td>{{ Constants.list_betrayed_payoff.0|c }}, {{ Constants.list_betray_payoff.0|c }}</td>
+                </tr>
+                <tr class="highlight-row-on-hover">
+                    <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                    <td>{{ Constants.list_betray_payoff.0|c }}, {{ Constants.list_betrayed_payoff.0|c }}</td>
+                    <td>{{ Constants.list_both_defect_payoff.0|c }}, {{ Constants.list_both_defect_payoff.0|c }}</td>
+
+                {% else %}
+                    {% if subsession.round_number == 2 %}
+                        <td>{{ Constants.list_both_cooperate_payoff.1|c }}, {{ Constants.list_both_cooperate_payoff.1|c }}</td>
+                        <td>{{ Constants.list_betrayed_payoff.1|c }}, {{ Constants.list_betray_payoff.1|c }}</td>
+                    </tr>
+                    <tr class="highlight-row-on-hover">
+                        <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                        <td>{{ Constants.list_betray_payoff.1|c }}, {{ Constants.list_betrayed_payoff.1|c }}</td>
+                        <td>{{ Constants.list_both_defect_payoff.1|c }}, {{ Constants.list_both_defect_payoff.1|c }}</td>
+
+                    {% else %}
+                        {% if subsession.round_number == 3 %}
+                            <td>{{ Constants.list_both_cooperate_payoff.2|c }}, {{ Constants.list_both_cooperate_payoff.2|c }}</td>
+                            <td>{{ Constants.list_betrayed_payoff.2|c }}, {{ Constants.list_betray_payoff.2|c }}</td>
+                        </tr>
+                        <tr class="highlight-row-on-hover">
+                            <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                            <td>{{ Constants.list_betray_payoff.2|c }}, {{ Constants.list_betrayed_payoff.2|c }}</td>
+                            <td>{{ Constants.list_both_defect_payoff.2|c }}, {{ Constants.list_both_defect_payoff.2|c }}</td>
+
+                        {% else %}
+                            {% if subsession.round_number == 4 %}
+                                <td>{{ Constants.list_both_cooperate_payoff.3|c }}, {{ Constants.list_both_cooperate_payoff.3|c }}</td>
+                                <td>{{ Constants.list_betrayed_payoff.3|c }}, {{ Constants.list_betray_payoff.3|c }}</td>
+                            </tr>
+                            <tr class="highlight-row-on-hover">
+                                <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                <td>{{ Constants.list_betray_payoff.3|c }}, {{ Constants.list_betrayed_payoff.3|c }}</td>
+                                <td>{{ Constants.list_both_defect_payoff.3|c }}, {{ Constants.list_both_defect_payoff.3|c }}</td>
+
+                            {% else %}
+                                {% if subsession.round_number == 5 %}
+                                    <td>{{ Constants.list_both_cooperate_payoff.4|c }}, {{ Constants.list_both_cooperate_payoff.4|c }}</td>
+                                    <td>{{ Constants.list_betrayed_payoff.4|c }}, {{ Constants.list_betray_payoff.4|c }}</td>
+                                </tr>
+                                <tr class="highlight-row-on-hover">
+                                    <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                    <td>{{ Constants.list_betray_payoff.4|c }}, {{ Constants.list_betrayed_payoff.4|c }}</td>
+                                    <td>{{ Constants.list_both_defect_payoff.4|c }}, {{ Constants.list_both_defect_payoff.4|c }}</td>
+
+                                {% else %}
+                                    {% if subsession.round_number == 6 %}
+                                        <td>{{ Constants.list_both_cooperate_payoff.5|c }}, {{ Constants.list_both_cooperate_payoff.5|c }}</td>
+                                        <td>{{ Constants.list_betrayed_payoff.5|c }}, {{ Constants.list_betray_payoff.5|c }}</td>
+                                    </tr>
+                                    <tr class="highlight-row-on-hover">
+                                        <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                        <td>{{ Constants.list_betray_payoff.5|c }}, {{ Constants.list_betrayed_payoff.5|c }}</td>
+                                        <td>{{ Constants.list_both_defect_payoff.5|c }}, {{ Constants.list_both_defect_payoff.5|c }}</td>
+
+                                    {% else %}
+                                        {% if subsession.round_number == 7 %}
+                                            <td>{{ Constants.list_both_cooperate_payoff.6|c }}, {{ Constants.list_both_cooperate_payoff.6|c }}</td>
+                                            <td>{{ Constants.list_betrayed_payoff.6|c }}, {{ Constants.list_betray_payoff.6|c }}</td>
+                                        </tr>
+                                        <tr class="highlight-row-on-hover">
+                                            <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                            <td>{{ Constants.list_betray_payoff.6|c }}, {{ Constants.list_betrayed_payoff.6|c }}</td>
+                                            <td>{{ Constants.list_both_defect_payoff.6|c }}, {{ Constants.list_both_defect_payoff.6|c }}</td>
+
+                                        {% else %}
+                                            {% if subsession.round_number == 8 %}
+                                                <td>{{ Constants.list_both_cooperate_payoff.7|c }}, {{ Constants.list_both_cooperate_payoff.7|c }}</td>
+                                                <td>{{ Constants.list_betrayed_payoff.7|c }}, {{ Constants.list_betray_payoff.7|c }}</td>
+                                            </tr>
+                                            <tr class="highlight-row-on-hover">
+                                                <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                <td>{{ Constants.list_betray_payoff.7|c }}, {{ Constants.list_betrayed_payoff.7|c }}</td>
+                                                <td>{{ Constants.list_both_defect_payoff.7|c }}, {{ Constants.list_both_defect_payoff.7|c }}</td>
+
+                                            {% else %}
+                                                {% if subsession.round_number == 9 %}
+                                                    <td>{{ Constants.list_both_cooperate_payoff.8|c }}, {{ Constants.list_both_cooperate_payoff.8|c }}</td>
+                                                    <td>{{ Constants.list_betrayed_payoff.8|c}}, {{ Constants.list_betray_payoff.8|c }}</td>
+                                                </tr>
+                                                <tr class="highlight-row-on-hover">
+                                                    <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                    <td>{{ Constants.list_betray_payoff.8|c }}, {{ Constants.list_betrayed_payoff.8|c }}</td>
+                                                    <td>{{ Constants.list_both_defect_payoff.8|c }}, {{ Constants.list_both_defect_payoff.8|c }}</td>
+
+                                                {% else %}
+                                                    {% if subsession.round_number == 10 %}
+                                                        <td>{{ Constants.list_both_cooperate_payoff.9|c }}, {{ Constants.list_both_cooperate_payoff.9|c }}</td>
+                                                        <td>{{ Constants.list_betrayed_payoff.9|c }}, {{ Constants.list_betray_payoff.9|c }}</td>
+                                                    </tr>
+                                                    <tr class="highlight-row-on-hover">
+                                                        <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                        <td>{{ Constants.list_betray_payoff.9|c }}, {{ Constants.list_betrayed_payoff.9|c }}</td>
+                                                        <td>{{ Constants.list_both_defect_payoff.9|c }}, {{ Constants.list_both_defect_payoff.9|c }}</td>
+
+                                                    {% else %}
+                                                        {% if subsession.round_number == 11 %}
+                                                            <td>{{ Constants.list_both_cooperate_payoff.10|c }}, {{ Constants.list_both_cooperate_payoff.10|c }}</td>
+                                                            <td>{{ Constants.list_betrayed_payoff.10|c }}, {{ Constants.list_betray_payoff.10|c }}</td>
+                                                        </tr>
+                                                        <tr class="highlight-row-on-hover">
+                                                            <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                            <td>{{ Constants.list_betray_payoff.10|c }}, {{ Constants.list_betrayed_payoff.10|c }}</td>
+                                                            <td>{{ Constants.list_both_defect_payoff.10|c }}, {{ Constants.list_both_defect_payoff.10|c }}</td>
+
+                                                        {% else %}
+                                                            {% if subsession.round_number == 12 %}
+                                                                <td>{{ Constants.list_both_cooperate_payoff.11|c }}, {{ Constants.list_both_cooperate_payoff.11|c }}</td>
+                                                                <td>{{ Constants.list_betrayed_payoff.11|c }}, {{ Constants.list_betray_payoff.11|c }}</td>
+                                                            </tr>
+                                                            <tr class="highlight-row-on-hover">
+                                                                <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                                <td>{{ Constants.list_betray_payoff.11|c }}, {{ Constants.list_betrayed_payoff.11|c }}</td>
+                                                                <td>{{ Constants.list_both_defect_payoff.11|c }}, {{ Constants.list_both_defect_payoff.11|c }}</td>
+
+                                                            {% else %}
+                                                                {% if subsession.round_number == 13 %}
+                                                                    <td>{{ Constants.list_both_cooperate_payoff.12|c }}, {{ Constants.list_both_cooperate_payoff.12|c }}</td>
+                                                                    <td>{{ Constants.list_betrayed_payoff.12|c }}, {{ Constants.list_betray_payoff.12|c }}</td>
+                                                                </tr>
+                                                                <tr class="highlight-row-on-hover">
+                                                                    <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                                    <td>{{ Constants.list_betray_payoff.12|c }}, {{ Constants.list_betrayed_payoff.12|c }}</td>
+                                                                    <td>{{ Constants.list_both_defect_payoff.12|c }}, {{ Constants.list_both_defect_payoff.12|c }}</td>
+
+                                                                {% else %}
+                                                                    {% if subsession.round_number == 14 %}
+                                                                        <td>{{ Constants.list_both_cooperate_payoff.13|c }}, {{ Constants.list_both_cooperate_payoff.13|c }}</td>
+                                                                        <td>{{ Constants.list_betrayed_payoff.13|c }}, {{ Constants.list_betray_payoff.13|c }}</td>
+                                                                    </tr>
+                                                                    <tr class="highlight-row-on-hover">
+                                                                        <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                                        <td>{{ Constants.list_betray_payoff.13|c }}, {{ Constants.list_betrayed_payoff.13|c }}</td>
+                                                                        <td>{{ Constants.list_both_defect_payoff.13|c }}, {{ Constants.list_both_defect_payoff.13|c }}</td>
+
+                                                                    {% else %}
+                                                                        <td>{{ Constants.list_both_cooperate_payoff.14|c }}, {{ Constants.list_both_cooperate_payoff.14|c }}</td>
+                                                                        <td>{{ Constants.list_betrayed_payoff.14|c }}, {{ Constants.list_betray_payoff.14|c }}</td>
+                                                                    </tr>
+                                                                    <tr class="highlight-row-on-hover">
+                                                                        <td><button name="decision" value="Defect" class="btn btn-primary btn-large">D</button></td>
+                                                                        <td>{{ Constants.list_betray_payoff.14|c }}, {{ Constants.list_betrayed_payoff.14|c }}</td>
+                                                                        <td>{{ Constants.list_both_defect_payoff.14|c }}, {{ Constants.list_both_defect_payoff.14|c }}</td>
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            </tr>
+        </table>
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

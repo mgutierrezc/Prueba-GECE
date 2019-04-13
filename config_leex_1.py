@@ -17,6 +17,8 @@ app_sequence = ['public_goods', 'trust', 'ultimatum', 'guess_two_thirds', 'payme
 # participation_fee (soles)
 participation_fee = 5
 
+# # Prisoner sr
+PDsr_number_rounds = 10
 
 # # ultimatum game  params
 UG_number_rounds = 10
