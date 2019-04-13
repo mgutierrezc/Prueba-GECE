@@ -144,6 +144,13 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'pilotos_2019_1',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "LEEX PILOTO 2019 1",
+        'num_demo_participants': 4,
+        'app_sequence': ['prisoner_sr'],
+    },
+    {
         'name': 'prim_enc_mg',
         'real_world_currency_per_point': 0.05,
         'display_name': "LEEX PILOTO 2018 2",
