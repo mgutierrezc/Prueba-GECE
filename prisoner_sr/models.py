@@ -45,8 +45,8 @@ class Subsession(BaseSubsession):
         c_sum = (self.round_number - 1)*0.1
         return c_sum
 
- #   def creating_session(self):
-  #      self.group_randomly()
+    def creating_session(self):
+        self.group_randomly()
     pass
 
 
