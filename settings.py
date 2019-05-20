@@ -147,7 +147,7 @@ SESSION_CONFIGS = [
         'name': 'tesis_sr',
         'real_world_currency_per_point': 0.05,
         'display_name': "Sesión Tesis Santiago Risco",
-        'num_demo_participants': 4,
+        'num_demo_participants': 16,
         'app_sequence': ['prisoner_sr', 'survey_sr'],
     },
     {
