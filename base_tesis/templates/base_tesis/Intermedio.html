@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block title %}
+Primera encuesta
+{% endblock %}
+
+
+{% block content %}
+<p>
+    <label for="amount"> ¿Cuánto crees que fue la ganancia promedio de los demás participantes? </label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+
+
+<div id="slider-range"></div>
+
+{% formfield player.Pago_en_soles %}
+
+<p> Durante los lanzamientos de la primera ronda, ¿Cuál crees que fue el número más reportado por los demás participantes?</p>
+
+{% formfield player.Seleccione_una_de_las_siguientes_opciones %}
+
+    {% next_button %}
+{% endblock %}

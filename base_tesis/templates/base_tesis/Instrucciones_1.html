@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Instrucciones experimento ( 1 / 2 )
+{% endblock %}
+
+{% block content %}
+
+<p align="justify">
+El experimento consiste en lanzar un dado doce veces y reportar cada uno de los resultados en la computadora. </p>
+
+<p align="justify"> Antes de continuar:
+<ul>
+  <li>Prueben los dados y decida cuál usar.</li>
+  <li>El otro dado servirá como repuesto, en caso el dado elegido se haya caído o tiene algún problema.</li>
+  <li>Estos lanzamientos solo son de prueba, por lo que no afectará a sus pagos ni a sus resultados.</li>
+  <li> ¡No presione el botón  SIGUIENTE  sin haber probados los dados! </li>
+</ul>
+</p>
+    {% next_button %}
+{% endblock %}
+

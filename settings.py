@@ -144,11 +144,25 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'tesis_sr_ck_bs',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Sesión Piloto Risco, Kong y Siccha",
+        'num_demo_participants': 16,
+        'app_sequence': ['prisoner_sr', 'base_tesis', 'survey_sr'],
+    },
+    {
+        'name': 'tesis_kys',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Sesión Tesis Kong y Siccha",
+        'num_demo_participants': 16,
+        'app_sequence': ['base_tesis'],
+    },
+    {
         'name': 'tesis_sr',
         'real_world_currency_per_point': 0.05,
         'display_name': "Sesión Tesis Santiago Risco",
         'num_demo_participants': 16,
-        'app_sequence': ['prisoner_sr', 'survey_sr'],
+        'app_sequence': ['survey_sr'],
     },
     {
         'name': 'beec_mg',

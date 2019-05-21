@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Segunda encuesta
+{% endblock %}
+
+{% block content %}
+
+<p>Durante los lanzamientos de la segunda ronda, ¿Cual crees que fue el numero más reportado por los demás participantes? </p>
+
+{% formfield player.Seleccione_una_entre_las_siguientes_opciones %}
+
+<p> Para finalizar responda las siguientes preguntas </p>
+
+<table class="table">
+        <tr>
+		    <th> {% formfield player.Que_tan_religioso_te_consideras label="¿Que tan religioso te consideras?" %} </th>
+	    </tr>
+</table>
+
+<p>
+
+</p>
+
+<table class="table">
+        <tr>
+		    <th> {% formfield player.Que_tanto_crees_en_dios label="¿Que tanto crees en Dios?" %} </th>
+	    </tr>
+</table>
+
+<p>
+
+</p>
+
+<table class="table">
+        <tr>
+		    <th> {% formfield player.Hasta_que_punto_crees_en_un_dios_que_castiga label="¿Hasta que punto crees en un Dios que castiga?" %} </th>
+	    </tr>
+</table>
+
+
+<p> Muchas Gracias por su participación. Sirvase acercarse a la ubicación de los investigadores para recibir el pago correspondiente. </p>
+
+
+    {% next_button %}
+{% endblock %}
