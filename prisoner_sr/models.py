@@ -27,17 +27,17 @@ class Constants(BaseConstants):
 
     # payoff if 1 player defects and the other cooperates""",
     betray_payoff = c(20)
-    betrayed_payoff = c(5)
+    betrayed_payoff = c(2)
 
     # payoff if both players cooperate or both defect
-    both_cooperate_payoff = c(15)
-    both_defect_payoff = c(10)
+    both_cooperate_payoff = c(12)
+    both_defect_payoff = c(6)
 
     list_betray_payoff = [20, 20.1, 20.2, 19.9, 20.3, 19.7, 20.2, 20, 19.9, 20.1, 19.8, 19.7, 20.3, 20, 19.8]
-    list_betrayed_payoff = [5, 5.1, 5.2, 4.9, 5.3, 4.7, 5.2, 5, 4.9, 5.1, 4.8, 4.7, 5.3, 5, 4.8]
-    list_both_cooperate_payoff = [15, 15.1, 15.2, 14.9, 15.3, 14.7, 15.2, 15, 14.9, 15.1, 14.8, 14.7, 15.3, 15,
-                                  14.8]
-    list_both_defect_payoff = [10, 10.1, 10.2, 9.9, 10.3, 9.7, 10.2, 10, 9.9, 10.1, 9.8, 9.7, 10.3, 10, 9.8]
+    list_betrayed_payoff = [2, 2.1, 2.2, 1.9, 2.3, 1.7, 2.2, 2, 1.9, 2.1, 1.8, 1.7, 2.3, 2, 1.8]
+    list_both_cooperate_payoff = [12, 12.1, 12.2, 11.9, 12.3, 11.7, 12.2, 12, 11.9, 12.1, 11.8, 11.7, 12.3, 12,
+                                  11.8]
+    list_both_defect_payoff = [6, 6.1, 6.2, 5.9, 6.3, 5.7, 6.2, 6, 5.9, 6.1, 5.8, 5.7, 6.3, 6, 5.8]
 
 
 class Subsession(BaseSubsession):
@@ -45,9 +45,9 @@ class Subsession(BaseSubsession):
         c_sum = (self.round_number - 1)*0.1
         return c_sum
 
-    def creating_session(self):
-        for p in self.get_players():
-            p.betray_payoff = p.betray_payoff+(self.round_number - 1)*0.1
+#    def creating_session(self):
+#        self.group_randomly()
+#    pass
 
 
 class Group(BaseGroup):
@@ -59,22 +59,6 @@ class Player(BasePlayer):
         choices=['Cooperate', 'Defect'],
         doc="""This player's decision""",
         widget=widgets.RadioSelect()
-    )
-
-    betray_payoff = models.FloatField(
-        initial=12
-    )
-
-    betrayed_payoff = models.FloatField(
-        initial=3
-    )
-
-    both_cooperate_payoff = models.FloatField(
-        initial=9
-    )
-
-    both_defect_payoff = models.FloatField(
-        initial=6
     )
 
     #betray_payoff = float(12)
@@ -111,3 +95,4 @@ class Player(BasePlayer):
         }
 
         self.payoff = payoff_matrix[self.decision][self.other_player().decision]
+    pass

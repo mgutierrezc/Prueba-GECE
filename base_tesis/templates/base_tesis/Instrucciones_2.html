@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Instrucciones experimento (2 / 2)
+{% endblock %}
+
+{% block content %}
+
+<p align="justify">
+ El experimento cuenta con dos rondas. En cada ronda deberá seguir los siguientes pasos: </p>
+
+<ul>
+  <li>Lance el dado 12 veces</li>
+  <li>Tras cada lanzamiento marque el resultado obtenido en la casilla correspondiente al número de lanzamiento.</li>
+  <li>Para poder continuar con la siguiente sesión tendrá que marcar los resultados obtenidos en cada uno de los 12 lanzamientos.</li>
+  <li>Tras presionar continuar tendrá que responder un breve cuestionario.</li>
+</ul>
+
+<p align="justify">
+Los resultados que reporten son completamente anónimos. No tienen que mostrarnos en ningún momento el número que les salió en el dado, ni nosotros los estaremos supervisando o grabando. Por lo tanto, no es posible saber el valor real del dado durante el experimento, ni durante los pagos ni en retrospectiva.
+</p>
+ <p align="justify">   Recuerde que serán dos rondas, por lo que los pasos listados anteriormente serán realizados 2 veces.
+Si tiene alguna duda, antes de continuar, levante la mano y nos acercaremos a su sitio a resolver su pregunta.
+</p>
+    {% next_button %}
+{% endblock %}
+

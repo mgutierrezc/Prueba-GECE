@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block title %}
+Resultados ronda 2
+{% endblock %}
+
+
+{% block content %}
+
+    <p> El valor del dado escogido es {{ player.lanzamiento_2 }} correspondiente al segundo lanzamiento </p>
+
+    {% next_button %}
+{% endblock %}

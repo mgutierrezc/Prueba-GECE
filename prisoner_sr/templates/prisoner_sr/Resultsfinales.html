@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+Tus pagos en función de tus decisiones y las decisiones de las otras personas con las que fuiste emparejado(a) son los siguientes:
+
+ <table class="table" style="width:450px; margin-top:20px;">
+
+     <tr><td><u>Ronda</u></td><td><u>Pago</u></td><td>&emsp;&emsp;&emsp;<u>Ronda</u></td><td><u>Pago</u></td></tr>
+
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;1</td><td>{{ round_payoff1 }}</td><td>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;9</td><td>{{ round_payoff9 }}</td></tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;2</td><td>{{ round_payoff2 }}</td><td>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;10</td><td>{{ round_payoff10 }}</td></tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;3</td><td>{{ round_payoff3 }}</td><td>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;11</td><td>{{ round_payoff11 }}</td></tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;4</td><td>{{ round_payoff4 }}</td><td>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;12</td><td>{{ round_payoff12 }}</td></tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;5</td><td>{{ round_payoff5 }}</td><td>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;13</td><td>{{ round_payoff13 }}</td></tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;6</td><td>{{ round_payoff6 }}</td><td>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;14</td><td>{{ round_payoff14 }}</td></tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;7</td><td>{{ round_payoff7 }}</td><td>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;15</td><td>{{ round_payoff15 }}</td></tr>
+     <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;8</td><td>{{ round_payoff8 }}</td></tr>
+
+ </table>
+
+    {% next_button %}
+
+{% endblock %}

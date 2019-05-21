@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Parte 2
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Por favor responda las siguientes preguntas.
+    </p>
+
+    <p><b>
+        "Segundo caso"
+    </b></p>
+
+    <p>
+        Usted pierde un sobre con 1000 soles. En el sobre esta escrito su nombre y su dirección.
+    </p>
+
+    {% for field in form %}
+        {% formfield field %}
+    {% endfor %}
+
+    {% next_button %}
+
+{% endblock %}

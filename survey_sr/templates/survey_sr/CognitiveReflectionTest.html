@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Parte 2
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Por favor responda las siguientes preguntas.
+    </p>
+
+    <p><b>
+        "Primer caso"
+    </b></p>
+
+    <p>
+        El dueño de un pequeño negocio recibe 10 micro-computadoras, pero sólo se le cobran 9.
+    </p>
+    {% for field in form %}
+        {% formfield field %}
+    {% endfor %}
+
+    {% next_button %}
+
+{% endblock %}

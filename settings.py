@@ -61,7 +61,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'soles'
 USE_POINTS = False
-REAL_WORLD_CURRENCY_DECIMAL_PLACES = 0
+
 
 
 # e.g. en, de, fr, it, ja, zh-hans
@@ -144,17 +144,31 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'sesion_experimental_proyecto_altruismo',
+        'name': 'tesis_sr_ck_bs',
         'real_world_currency_per_point': 0.05,
-        'display_name': "Sesión Experimental Proyecto Altruismo",
+        'display_name': "Sesión Piloto Risco, Kong y Siccha",
         'num_demo_participants': 16,
-        'app_sequence': ['prim_enc_mg', 'sec_enc_mg', 'beec_mg'],
+        'app_sequence': ['prisoner_sr', 'base_tesis', 'survey_sr'],
+    },
+    {
+        'name': 'tesis_kys',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Sesión Tesis Kong y Siccha",
+        'num_demo_participants': 16,
+        'app_sequence': ['base_tesis'],
+    },
+    {
+        'name': 'tesis_sr',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Sesión Tesis Santiago Risco",
+        'num_demo_participants': 16,
+        'app_sequence': ['survey_sr'],
     },
     {
         'name': 'beec_mg',
         'real_world_currency_per_point': 0.05,
         'display_name': "Tiebout Sorting Public Goods",
-        'num_demo_participants': 8,
+        'num_demo_participants': 4,
         'app_sequence': ['beec_mg'],
     },
     {
@@ -176,7 +190,7 @@ SESSION_CONFIGS = [
         'real_world_currency_per_point': 0.01,
         'display_name': "LEEX PILOTO",
         'num_demo_participants': 4,
-        'app_sequence': ['ultimatum', 'public_goods', 'trust', 'guess_two_thirds', 'payment_info', 'survey'],
+        'app_sequence': ['ultimatum', 'public_goods', 'trust', 'guess_two_thirds', 'payment_info', 'survey_sr'],
     },
     {
         'name': 'prueba_aleatorizacion',
@@ -227,10 +241,10 @@ SESSION_CONFIGS = [
         'app_sequence': ['ultimatum'],
     },
     {
-         'name': 'survey',
+         'name': 'survey_sr',
          'display_name': "Survey",
          'num_demo_participants': 1,
-         'app_sequence': ['survey', 'payment_info'],
+         'app_sequence': ['survey_sr', 'payment_info'],
      },
     {
         'name': 'Session_Real',
@@ -247,10 +261,10 @@ SESSION_CONFIGS = [
     #      'app_sequence': ['dictator', 'payment_info'],
     # },
     # {
-    #     'name': 'survey',
+    #     'name': 'survey_sr',
     #     'display_name': "Survey",
     #     'num_demo_participants': 1,
-    #     'app_sequence': ['survey', 'payment_info'],
+    #     'app_sequence': ['survey_sr', 'payment_info'],
     # },
     # {
     #     'name': 'quiz',
@@ -259,10 +273,10 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['quiz'],
     # },
     # {
-    #     'name': 'prisoner',
+    #     'name': 'prisoner_sr',
     #     'display_name': "Prisoner's Dilemma",
     #     'num_demo_participants': 2,
-    #     'app_sequence': ['prisoner', 'payment_info'],
+    #     'app_sequence': ['prisoner_sr', 'payment_info'],
     # },
     # {
     #     'name': 'ultimatum_strategy',
@@ -381,7 +395,7 @@ SESSION_CONFIGS = [
     #     'name': 'public_goods_simple',
     #     'display_name': "Public Goods (simple version from tutorial)",
     #     'num_demo_participants': 3,
-    #     'app_sequence': ['public_goods_simple', 'survey', 'payment_info'],
+    #     'app_sequence': ['public_goods_simple', 'survey_sr', 'payment_info'],
     # },
     # {
     #     'name': 'trust_simple',

@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Parte 2
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Por favor responda las siguientes preguntas.
+    </p>
+
+    <p><b>
+        "Tercer caso"
+    </b></p>
+
+    <p>
+        Suponga que todos en el laboratorio reciben 10 soles. Usted debe dividir los 10 soles que recibió entre una
+        cuenta privada y una cuenta pública.
+    </p>
+    <p>
+        Lo que ponga en la cuenta privada se lo quedará usted.
+    </p>
+    <p>
+        Lo que ponga en la cuenta pública se sumará a lo que los demás decidan poner en la cuenta pública. La cantidad
+        total en la cuenta pública se duplicará y se dividirá equitativamente entre todos los miembros del laboratorio.
+    </p>
+    <p><i>
+        Puede utilizar las flechas del teclado para mover el deslizable con mayor precisión.
+    </i></p>
+    {% for field in form %}
+        {% formfield field %}
+    {% endfor %}
+
+    {% next_button %}
+
+{% endblock %}
