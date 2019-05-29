@@ -33,11 +33,10 @@ class Constants(BaseConstants):
     both_cooperate_payoff = c(12)
     both_defect_payoff = c(6)
 
-    list_betray_payoff = [20, 20.1, 20.2, 19.9, 20.3, 19.7, 20.2, 20, 19.9, 20.1, 19.8, 19.7, 20.3, 20, 19.8]
-    list_betrayed_payoff = [2, 2.1, 2.2, 1.9, 2.3, 1.7, 2.2, 2, 1.9, 2.1, 1.8, 1.7, 2.3, 2, 1.8]
-    list_both_cooperate_payoff = [12, 12.1, 12.2, 11.9, 12.3, 11.7, 12.2, 12, 11.9, 12.1, 11.8, 11.7, 12.3, 12,
-                                  11.8]
-    list_both_defect_payoff = [6, 6.1, 6.2, 5.9, 6.3, 5.7, 6.2, 6, 5.9, 6.1, 5.8, 5.7, 6.3, 6, 5.8]
+    list_betray_payoff = [10, 10.1, 10.2, 9.9, 10.3, 9.7, 10.2, 10, 9.9, 10.1, 9.8, 9.7, 10.3, 10, 9.8]
+    list_betrayed_payoff = [1, 1.1, 1.2, 0.9, 1.3, 0.7, 1.2, 1, 0.9, 1.1, 0.8, 0.7, 1.3, 1, 0.8]
+    list_both_cooperate_payoff = [6, 6.1, 6.2, 5.9, 6.3, 5.7, 6.2, 6, 5.9, 6.1, 5.8, 5.7, 6.3, 6, 5.8]
+    list_both_defect_payoff = [3, 3.1, 3.2, 2.9, 3.3, 2.7, 3.2, 3, 2.9, 3.1, 2.8, 2.7, 3.3, 3, 2.8]
 
 
 class Subsession(BaseSubsession):
