@@ -2,7 +2,9 @@ from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
-import random
+
+#import random
+from django import forms
 import itertools
 
 author = 'Your name here'
@@ -10,6 +12,15 @@ doc = """
 Your app description
 """
 #
+OPTIONS = (
+    ("1", "Uno"),
+    ("2", "Dos"),
+    ("3", "Tres"),
+    ("4", "Cuatro"),
+    ("5", "Cinco"),
+    ("6", "Seis"),
+    ("7", "Todos los numeros fueron reportados por igual"),
+)
 
 
 class Constants(BaseConstants):
@@ -86,16 +97,16 @@ class Player(BasePlayer):
         choices=[0, 1, 2, 3, 4, 5],
         widget=widgets.RadioSelect,
     )
+    
     Seleccione_una_de_las_siguientes_opciones = models.StringField(
-        choices=['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'indiferente'],
-        widget=widgets.RadioSelect,
-    )
+        widget=forms.CheckboxSelectMultiple(choices=OPTIONS),)
+
 
     Seleccione_una_entre_las_siguientes_opciones = models.StringField(
-        choices=['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'indiferente'],
-        widget=widgets.RadioSelect,
-    )
-    Pago_en_soles = models.FloatField(min=0, max=5, initial=0, widget=widgets.SliderInput(attrs={'step': '0.1'},))
+        widget=forms.CheckboxSelectMultiple(choices=OPTIONS),)
+
+    
+    Pago_en_soles = models.FloatField(min=0, max=5)
 
     Que_tan_religioso_te_consideras = models.StringField(choices=['Nada','Poco','Algo','Bastante', 'Mucho'],
                                                          widget=widgets.RadioSelectHorizontal,

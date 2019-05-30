@@ -8,19 +8,14 @@ Primera encuesta
 
 
 {% block content %}
-<p>
-    <label for="amount"> ¿Cuánto crees que fue la ganancia promedio de los demás participantes? </label>
-    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+<p> <FONT SIZE=4> En esta primera ronda; ¿Cuánto crees que fue la ganancia promedio de los demás participantes?
+{% formfield player.Pago_en_soles %} </FONT>
 </p>
 
 
-<div id="slider-range"></div>
+<p> <FONT SIZE=4> Durante los lanzamientos de la primera ronda, ¿Cuál crees que fue el número o los números más reportados por los demás participantes?</FONT></p>
 
-{% formfield player.Pago_en_soles %}
-
-<p> Durante los lanzamientos de la primera ronda, ¿Cuál crees que fue el número más reportado por los demás participantes?</p>
-
-{% formfield player.Seleccione_una_de_las_siguientes_opciones %}
+{% formfield player.Seleccione_una_de_las_siguientes_opciones label="" %}
 
     {% next_button %}
 {% endblock %}

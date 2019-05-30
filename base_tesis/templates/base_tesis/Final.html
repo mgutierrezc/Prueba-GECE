@@ -7,11 +7,15 @@ Segunda encuesta
 
 {% block content %}
 
-<p>Durante los lanzamientos de la segunda ronda, ¿Cual crees que fue el numero más reportado por los demás participantes? </p>
+<p> <FONT SIZE=4> En esta segunda ronda; ¿Cuánto crees que fue la ganancia promedio de los demás participantes?
+{% formfield player.Pago_en_soles %} </FONT>
+</p>
 
-{% formfield player.Seleccione_una_entre_las_siguientes_opciones %}
+<p> <FONT SIZE=4> Durante los lanzamientos de la segunda ronda, ¿Cuál crees que fue el número o los números más reportados por los demás participantes?</FONT> </p>
 
-<p> Para finalizar responda las siguientes preguntas </p>
+{% formfield player.Seleccione_una_entre_las_siguientes_opciones label="" %}
+
+<p> <FONT SIZE=4> Para finalizar responda las siguientes preguntas: </FONT> </p>
 
 <table class="table">
         <tr>
@@ -40,7 +44,7 @@ Segunda encuesta
 </table>
 
 
-<p> Muchas Gracias por su participación. Sirvase acercarse a la ubicación de los investigadores para recibir el pago correspondiente. </p>
+<p> <FONT SIZE=4> Muchas Gracias por su participación. Sirvase acercarse a la ubicación de los investigadores para recibir el pago correspondiente. </FONT> </p>
 
 
     {% next_button %}

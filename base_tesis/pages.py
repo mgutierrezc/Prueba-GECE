@@ -51,7 +51,7 @@ class Intermedio(Page):
 class Results_1(Page):
     def is_displayed(self):
         return self.round_number == 1
-    pass
+
 
 
 class Results_2(Page):
@@ -63,7 +63,7 @@ class Final(Page):
     def is_displayed(self):
         return self.round_number == 2
     form_model = 'player'
-    form_fields = ['Seleccione_una_entre_las_siguientes_opciones', 'Que_tan_religioso_te_consideras','Que_tanto_crees_en_dios','Hasta_que_punto_crees_en_un_dios_que_castiga']
+    form_fields = ['Seleccione_una_entre_las_siguientes_opciones', 'Que_tan_religioso_te_consideras','Que_tanto_crees_en_dios','Hasta_que_punto_crees_en_un_dios_que_castiga', 'Pago_en_soles']
 
 
 page_sequence = [
@@ -75,7 +75,5 @@ page_sequence = [
     Results_1,
     Results_2,
     Intermedio,
-    Grupoa,
-    Grupob,
     Final
 ]

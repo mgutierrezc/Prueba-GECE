@@ -2,13 +2,12 @@
 {% load otree %}
 
 {% block title %}
-Instrucciones pagos (1 / 2)
+Instrucciones ( Parte 3 de 4 )
 {% endblock %}
 
 {% block content %}
-
-<p align="justify">
-Sus pagos en soles se calculan como muestra la tabla a continuación.</p>
+<p align="justify"><FONT SIZE=4>
+Sus pagos en soles se calculan como muestra la tabla a continuación.</FONT></p>
 
 
 <style>
@@ -17,16 +16,17 @@ Sus pagos en soles se calculan como muestra la tabla a continuación.</p>
     tr:hover {background-color: #ddd;}
 </style>
 
+
+
 <table border="1" width="100%">
 <tr>
   <th scope="row"><strong>Numero obtenido en el dado</strong></th>
-  <td>6</td>
-  <td>1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>4</td>
-  <td>5</td>
-
+  <td> <FONT SIZE=5> 6 </FONT> </td>
+  <td><FONT SIZE=5> 1 </FONT> </td>
+  <td><FONT SIZE=5> 2 </FONT> </td>
+  <td><FONT SIZE=5> 3 </FONT> </td>
+  <td><FONT SIZE=5> 4 </FONT> </td>
+  <td><FONT SIZE=5> 5 </FONT> </td>
 </tr>
 
 <tr>
@@ -40,16 +40,18 @@ Sus pagos en soles se calculan como muestra la tabla a continuación.</p>
 </tr>
 </table>
 
+
+
 <p align="justify">
 </p>
 
 
-<p align="justify">
+<p align="justify"><FONT SIZE=4>
 Note que obtener 6 en el dado no tiene pago.
 Además, el pago promedio para una gran cantidad de tiradas del dado es 2.5 soles
-{(0+1+2+3+4+5)/6 = 2.5 soles.}</p>
+{(0+1+2+3+4+5)/6 = 2.5 soles.}</FONT> </p>
 
-<p align="justify">
+<p align="justify"> <FONT SIZE=4>
 <ul>
   <li> Uno de los lanzamientos que registren será seleccionado de manera aleatoria
 y se le pagará el monto correspondiente a ese lanzamiento. Los otros once lanzamientos no serán pagados.</li>
@@ -57,13 +59,8 @@ y se le pagará el monto correspondiente a ese lanzamiento. Los otros once lanza
   <li>Una vez han terminado los doce lanzamientos pueden seguir lanzando el dado
 para verificar que funcione correctamente.</li>
 </ul>
-
-
-
-
-
+</FONT>
 </p>
-
 
     {% next_button %}
 {% endblock %}

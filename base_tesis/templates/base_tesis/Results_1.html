@@ -9,7 +9,47 @@ Resultados ronda 1
 
 {% block content %}
 
-    <p> El valor del dado escogido es {{ player.lanzamiento_1 }} correspondiente al primer lanzamiento </p>
+    <p> <FONT SIZE=4> En esta ronda se pagara el decimo lanzamiento. Usted reportó, en este lanzamiento, el numero: {{ player.lanzamiento_10 }}
+    Recuerde que el pago se realiza de acuerdo a la siguiente tabla: </FONT> </p>
+
+<p align="justify">
+<style>
+    tr {text-align: center;}
+    tr:nth-child(even){background-color: #f2f2f2;}
+    tr:hover {background-color: #ddd;}
+</style>
+
+<table border="1" width="100%">
+<tr>
+  <th scope="row"><strong>Numero obtenido en el dado</strong></th>
+  <td> <FONT SIZE=5> 6 </FONT> </td>
+  <td><FONT SIZE=5> 1 </FONT> </td>
+  <td><FONT SIZE=5> 2 </FONT> </td>
+  <td><FONT SIZE=5> 3 </FONT> </td>
+  <td><FONT SIZE=5> 4 </FONT> </td>
+  <td><FONT SIZE=5> 5 </FONT> </td>
+</tr>
+
+<tr>
+  <td><strong>Pago en soles</strong></td>
+  <td>S/. 0.00</td>
+  <td>S/. 1.00</td>
+  <td>S/. 2.00</td>
+  <td>S/. 3.00</td>
+  <td>S/. 4.00</td>
+  <td>S/. 5.00</td>
+</tr>
+</table>
+
+</p>
+<p align="justify"> <FONT SIZE=4>
+    Por lo tanto a usted se le pagara: S/.
+    {% if player.lanzamiento_10 == 6 %}
+     0
+    {% else %}
+    {{ player.lanzamiento_10 }}
+    {% endif %}
+</FONT> </p>
 
     {% next_button %}
 {% endblock %}
