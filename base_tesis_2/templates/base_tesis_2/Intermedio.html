@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block title %}
+Primera encuesta
+{% endblock %}
+
+
+{% block content %}
+<p> <FONT SIZE=4> En esta primera ronda; ¿Cuánto crees que fue la ganancia promedio de los demás participantes?
+{% formfield player.Pago_en_soles %} </FONT>
+</p>
+
+
+<p> <FONT SIZE=4> Durante los lanzamientos de la primera ronda, ¿Cuál crees que fue el número o los números más reportados por los demás participantes?</FONT></p>
+
+{% formfield player.Seleccione_una_de_las_siguientes_opciones label="" %}
+
+    {% next_button %}
+{% endblock %}

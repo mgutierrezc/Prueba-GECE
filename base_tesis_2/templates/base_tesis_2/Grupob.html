@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+{% load static %}
+
+{% block title %}
+Resultados previos
+{% endblock %}
+
+
+{% block content %}
+<p>En experimentos anteriores, hubo alumnos que ganaron entre 2-3 soles</p>
+
+<p> Pagos en anteriores experimentos </p>
+
+<img src="{% static 'b.jpg' %}"/>
+
+    {% next_button %}
+
+{% endblock %}

@@ -3,14 +3,13 @@
 
 
 {% block title %}
-Resultados ronda 2
+Resultados ronda 1
 {% endblock %}
 
 
-
-
 {% block content %}
-    <p> <FONT SIZE=4> En esta ronda se pagará el décimo lanzamiento. Usted reportó, en este lanzamiento, el número: {{ player.lanzamiento_10 }}
+
+    <p> <FONT SIZE=4> En esta ronda se pagará el décimo lanzamiento. Usted reportó, en este lanzamiento, el número: {{ player.lanzamiento_9 }}
     Recuerde que el pago se realiza de acuerdo a la siguiente tabla: </FONT> </p>
 
 <p align="justify">
@@ -29,7 +28,6 @@ Resultados ronda 2
   <td><FONT SIZE=5> 3 </FONT> </td>
   <td><FONT SIZE=5> 4 </FONT> </td>
   <td><FONT SIZE=5> 5 </FONT> </td>
-
 </tr>
 
 <tr>
@@ -43,16 +41,15 @@ Resultados ronda 2
 </tr>
 </table>
 
-
 </p>
 <p align="justify"> <FONT SIZE=4>
-    Por lo tanto a usted se le pagará: S/.
-    {% if player.lanzamiento_1 == 6 %}
+    Por lo tanto a usted se le pagara: S/.
+    {% if player.lanzamiento_9 == 6 %}
      0
     {% else %}
-    {{ player.lanzamiento_1 }}
+    {{ player.lanzamiento_9 }}
     {% endif %}
-    </FONT></p>
+</FONT> </p>
 
     {% next_button %}
 {% endblock %}

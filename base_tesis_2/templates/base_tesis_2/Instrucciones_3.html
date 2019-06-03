@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Instrucciones ( Parte 3 de 4 )
+{% endblock %}
+
+{% block content %}
+<p align="justify"><FONT SIZE=4>
+Sus pagos en soles se calculan como muestra la tabla a continuación.</FONT></p>
+
+
+<style>
+    tr {text-align: center;}
+    tr:nth-child(even){background-color: #f2f2f2;}
+    tr:hover {background-color: #ddd;}
+</style>
+
+
+
+<table border="1" width="100%">
+<tr>
+  <th scope="row"><strong>Numero obtenido en el dado</strong></th>
+  <td> <FONT SIZE=5> 6 </FONT> </td>
+  <td><FONT SIZE=5> 1 </FONT> </td>
+  <td><FONT SIZE=5> 2 </FONT> </td>
+  <td><FONT SIZE=5> 3 </FONT> </td>
+  <td><FONT SIZE=5> 4 </FONT> </td>
+  <td><FONT SIZE=5> 5 </FONT> </td>
+</tr>
+
+<tr>
+  <td><strong>Pago en soles</strong></td>
+  <td>S/. 0.00</td>
+  <td>S/. 1.00</td>
+  <td>S/. 2.00</td>
+  <td>S/. 3.00</td>
+  <td>S/. 4.00</td>
+  <td>S/. 5.00</td>
+</tr>
+</table>
+
+
+
+<p align="justify">
+</p>
+
+
+<p align="justify"><FONT SIZE=4>
+Note que obtener 6 en el dado no tiene pago.
+Además, el pago promedio para una gran cantidad de tiradas del dado es 2.5 soles
+{(0+1+2+3+4+5)/6 = 2.5 soles.}</FONT> </p>
+
+<p align="justify"> <FONT SIZE=4>
+<ul>
+  <li> Uno de los lanzamientos que registren será seleccionado de manera aleatoria
+y se le pagará el monto correspondiente a ese lanzamiento. Los otros once lanzamientos no serán pagados.</li>
+  <li>Se pagará un lanzamiento por ronda.  Cada ronda cuenta con 12 lanzamientos.</li>
+  <li>Una vez han terminado los doce lanzamientos pueden seguir lanzando el dado
+para verificar que funcione correctamente.</li>
+</ul>
+</FONT>
+</p>
+
+    {% next_button %}
+{% endblock %}

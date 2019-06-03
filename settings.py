@@ -148,7 +148,14 @@ SESSION_CONFIGS = [
         'real_world_currency_per_point': 0.05,
         'display_name': "Sesión Piloto Risco, Kong y Siccha",
         'num_demo_participants': 16,
-        'app_sequence': ['prisoner_sr', 'base_tesis', 'survey_sr'],
+        'app_sequence': ['prisoner_sr', 'survey_sr', 'base_tesis'],
+    },
+    {
+        'name': 'tesis_sr_ck_bs2',
+        'real_world_currency_per_point': 0.05,
+        'display_name': "Sesión Piloto Risco, Kong y Siccha 2",
+        'num_demo_participants': 16,
+        'app_sequence': ['prisoner_sr', 'survey_sr', 'base_tesis_2'],
     },
     {
         'name': 'tesis_kys',
